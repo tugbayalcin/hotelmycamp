@@ -87,6 +87,6 @@ public class HotelListPage {
     @FindBy (xpath = "//*[text()='Delete']")
     public WebElement EditUserDeleteButonu;
 
-    //dddd
+
 
 }
