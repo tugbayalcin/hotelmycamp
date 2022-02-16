@@ -8,7 +8,7 @@ import pages.LoginPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 
-public class TC01 {
+public class TC001 {
 AnaSayfaPage anaSayfaPage=new AnaSayfaPage();
     LoginPage loginPage=new LoginPage();
     HotelListPage hotelListPage=new HotelListPage();

@@ -1,6 +1,7 @@
 package tests.US009;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.AnaSayfaPage;
 import pages.LoginPage;
@@ -45,6 +46,7 @@ public class TC004 {
         Thread.sleep(1500);
         js.executeScript("scrollBy(0, 500);",roomReservationsPage.deleteButon);
         roomReservationsPage.deleteButon.click();
+        Assert.assertTrue(roomReservationsPage.roomSuccesfullyYazisi.isDisplayed());
 
         Driver.closeDriver();
     }
