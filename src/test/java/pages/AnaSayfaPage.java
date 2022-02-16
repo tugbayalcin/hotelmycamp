@@ -108,4 +108,6 @@ public class AnaSayfaPage {
     @FindBy(xpath = "//nav[@id='ftco-navbar']")
     public WebElement anasayfaSayfaTamami;
 
+
 }
+
