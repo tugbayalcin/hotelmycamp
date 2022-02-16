@@ -95,6 +95,8 @@ public class RoomReservationsPage {
     @FindBy(xpath = "//span[text()='Try again please']")
     public WebElement girisYapilamadiYazisi;
 
+    @FindBy(xpath = "//div[@class=‘modal-content’]")
+    public WebElement roomSuccesfullyYazisi;
 
     //-----------------------
 
