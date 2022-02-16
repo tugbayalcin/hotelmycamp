@@ -7,8 +7,8 @@ import utilities.Driver;
 
 public class AnaSayfaPage {
 
-    public AnaSayfaPage(){
-        PageFactory.initElements(Driver.getDriver(),this);
+    public AnaSayfaPage() {
+        PageFactory.initElements(Driver.getDriver(), this);
     }
 
     @FindBy(xpath = "//a[text()='Log in']")
@@ -53,7 +53,7 @@ public class AnaSayfaPage {
     @FindBy(xpath = "//input[@type='submit']")
     public WebElement anasayfaCheckAvailabilityButon;
 
-    @FindBy(xpath =  "//h2[text()='Welcome To Our Hotel']")
+    @FindBy(xpath = "//h2[text()='Welcome To Our Hotel']")
     public WebElement anasayfaWelcomeToOurHotelYazisi;
 
     @FindBy(xpath = "(//div[@class='text p-3 text-center'])[1]")
@@ -109,3 +109,4 @@ public class AnaSayfaPage {
     public WebElement anasayfaSayfaTamami;
 
 
+}
