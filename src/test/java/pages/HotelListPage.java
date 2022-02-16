@@ -13,6 +13,15 @@ public class HotelListPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
+    @FindBy (xpath = "//*[text()='ListOfUsers']")
+    public WebElement listofUserYazısı;
+
+    @FindBy(xpath = "(//span[@class='title'])[3]")
+    public WebElement hotelManagementButonu;
+
+    @FindBy(xpath = "(//a[@href='/admin/HotelAdmin'])[1]")
+    public WebElement hotelListButonu;
+
     @FindBy (xpath = "//span[text()='List Of Hotels']")
     public WebElement listOfHotelsYazısı;
     @FindBy (xpath = "//a[@class='btn btn-xs default']")
