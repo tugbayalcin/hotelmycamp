@@ -11,7 +11,7 @@ public class HotelRoomsPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(xpath="//a[@class='nav-link']")
+    @FindBy(xpath="//li[@id='navLogon']")
     public WebElement loginLinki;
 
     @FindBy(id="UserName")
@@ -22,6 +22,9 @@ public class HotelRoomsPage {
 
     @FindBy(id="btnSubmit")
     public WebElement loginButonu;
+
+    @FindBy (xpath="//span[@class='caption-subject font-green-sharp bold uppercase']")
+    public WebElement listOfUsersYazisi;
 
     @FindBy (xpath="(//span[@class=\"title\"])[3]")
     public WebElement hotelManagementLinki;
@@ -35,11 +38,17 @@ public class HotelRoomsPage {
     @FindBy(xpath = "(//i[@class='fa fa-angle-right'])[3]")
     public WebElement odaListesiSayfaDegistirmeButonu;
 
+    @FindBy(xpath="//div[@id='datatable_ajax_info']")
+    public WebElement FoundTotal20Records;
+
     @FindBy(xpath="//input[@name='IDHotelRoom']")
-    WebElement odaIdBox;
+    public WebElement odaIdBox;
 
     @FindBy(xpath="//button[@class='btn btn-sm yellow filter-submit margin-bottom']")
     public WebElement searchButonu;
+
+    @FindBy(xpath="//div[@id='datatable_ajax_info']")
+    public WebElement foundTotal1RecordsYazisi;
 
     @FindBy(xpath="//a[@class='btn btn-xs default']")
     public WebElement detailsButonu;
@@ -93,7 +102,7 @@ public class HotelRoomsPage {
     public WebElement wouldYouLikeToContinueYazisi;
 
     @FindBy(xpath = "//div[@class='bootbox-body']")
-    public WebElement CouldntDeleteRoomYazisi;
+    public WebElement couldntDeleteRoomYazisi;
 
     @FindBy(xpath="//div[@class='bootbox-body']")
     public WebElement hotelRoomSuccessfullyDeletedYazisi;
@@ -111,7 +120,7 @@ public class HotelRoomsPage {
     public WebElement listOfHotelRoomsdakiSearchButonu;
 
     @FindBy(xpath = "//tbody//tr//td[2]")
-    public WebElement badydekiTumDatalarListElementi;
+    public WebElement bodydekiTumDatalarListElementi;
 
 
 }
