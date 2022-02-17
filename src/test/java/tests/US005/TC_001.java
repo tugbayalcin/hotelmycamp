@@ -26,13 +26,13 @@ public class TC_001 {
         anaSayfaPage.mainLoginLinki.click();
 
         //3-Username girildi
-        loginPage.loginUsernameBox.sendKeys(ConfigReader.getProperty("ManagerUsername"));
+        loginPage.LoginUsernameBox.sendKeys(ConfigReader.getProperty("ManagerUsername"));
 
         //4-Password girildi
-        loginPage.loginPasswordBox.sendKeys(ConfigReader.getProperty("ManagerPassword"));
+        loginPage.LoginPasswordBox.sendKeys(ConfigReader.getProperty("ManagerPassword"));
 
         //5-Login butonuna basıldı
-        loginPage.girisLoginButon.click();
+        loginPage.GirisLoginButon.click();
 
         //6-Yönetici olarak giriş yapıldıgını test edelim.
         Assert.assertTrue(hotelListPage.listofUserYazısı.isDisplayed());
