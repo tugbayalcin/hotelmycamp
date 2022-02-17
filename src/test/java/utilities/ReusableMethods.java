@@ -3,6 +3,11 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
+import org.testng.Assert;
+import pages.AnaSayfaPage;
+import pages.HotelListPage;
+import pages.LoginPage;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -171,5 +176,36 @@ public class ReusableMethods {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
         jse.executeScript("arguments[0].scrollIntoView()",element);
         jse.executeScript("arguments[0].click();", element);
+    }
+
+    public void yöneticiGiris(){
+
+       AnaSayfaPage anaSayfaPage=new AnaSayfaPage();
+        LoginPage loginPage=new LoginPage();
+       HotelListPage hotelListPage=new HotelListPage();
+
+
+
+        //1-https://www.hotelmycamp.com/ Url ile giris yapılır
+        Driver.getDriver().get(ConfigReader.getProperty("HMCURL"));
+
+        //2-Login butonuna tıklandı
+        anaSayfaPage.mainLoginLinki.click();
+
+        //3-Username girildi
+        loginPage.LoginUsernameBox.sendKeys(ConfigReader.getProperty("ManagerUsername"));
+
+        //4-Password girildi
+        loginPage.LoginPasswordBox.sendKeys(ConfigReader.getProperty("ManagerPassword"));
+
+        //5-Login butonuna basıldı
+        loginPage.GirisLoginButon.click();
+
+
+        //6-Yönetici olarak giriş yapıldıgını test edelim.
+        Assert.assertTrue(hotelListPage.listofUserYazısı.isDisplayed());
+
+
+
     }
 }

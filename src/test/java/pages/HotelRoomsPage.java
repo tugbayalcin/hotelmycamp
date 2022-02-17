@@ -100,12 +100,16 @@ public class HotelRoomsPage {
 
     @FindBy(xpath = "//button[@data-bb-handler='ok']")
     public WebElement alertOKButonu;
+
     @FindBy(xpath = "(//select[@class='form-control input-xsmall input-sm input-inline'])[1]")
     public WebElement hotelRoomGosterimSayisiDropDown;
+
     @FindBy(xpath = "//select[@id='lkpHotels']")
     public WebElement listOfHotelRoomSayfasindakiIDHotelDropDownu;
+
     @FindBy(xpath = "//button[@class='btn btn-sm yellow filter-submit margin-bottom']")
     public WebElement listOfHotelRoomsdakiSearchButonu;
+
     @FindBy(xpath = "//tbody//tr//td[2]")
     public WebElement badydekiTumDatalarListElementi;
 

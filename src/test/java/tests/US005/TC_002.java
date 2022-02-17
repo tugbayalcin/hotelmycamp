@@ -16,7 +16,7 @@ public class TC_002 {
     @Test
     public void test(){
 
-//1-Yönetici olarak  https://www.hotelmycamp.com/ Url ile giriş yapılır
+// 1-Yönetici olarak  https://www.hotelmycamp.com/ Url ile giriş yapılır
     reusableMethods.yöneticiGiris();
 
 
