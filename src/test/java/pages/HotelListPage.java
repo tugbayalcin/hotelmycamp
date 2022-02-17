@@ -52,8 +52,11 @@ public class HotelListPage {
     @FindBy (xpath = "//select[@id='lkpGroups']")
     public WebElement listOfHotelsSearchIDGroupSelect;
 
-    @FindBy (xpath = "//a[@title='Next']")
+    @FindBy (xpath = "(//a[@title='Next'])[1]")
     public WebElement listOfHotelsİleriButonu;
+
+    @FindBy (xpath = "(//input[@type='text'])[1]")
+    public WebElement listOfHotelSayfaSayısınıGösterenYazı;
 
     @FindBy (xpath = "//a[@title='Prev']")
     public WebElement listOfHotelsGeriButonu;
@@ -70,66 +73,51 @@ public class HotelListPage {
     @FindBy (xpath = "//*[@class='fa fa-print']")
     public WebElement listOfHotelsPrintButonu;
 
-    //Edit USer sayfası
+    @FindBy (xpath = "//*[text()='1188']")
+    public WebElement listOfHotel1188noluHotelID;
+
+    //*************************
+    // ***********************
+    // ** Edit Hotel sayfası locateleri *****
+
     @FindBy (xpath = "(//div[@class='caption'])[1]")
-    public WebElement EditUserYazısı;
+    public WebElement EditHotelYazısı;
 
     @FindBy (xpath = "//*[text()='General Data']")
-    public WebElement EditUserGeneralDataButonu;
+    public WebElement  EditHotelGeneralDataButonu;
 
-    @FindBy (xpath = "//*[text()='Files']")
-    public WebElement EditUserFilesButonu;
+    @FindBy (xpath = "//*[@id='Code']")
+    public WebElement  EditHotelCodeBox;
 
-    @FindBy (xpath = "//*[@id='UserName']")
-    public WebElement EditUserUsernameBox;
 
-    @FindBy (xpath = "//*[@id='Password']")
-    public WebElement EditUserPasswordBox;
+    @FindBy (xpath = "//*[@id='Name']")
+    public WebElement  EditHotelNameBox;
 
-    @FindBy (xpath = "//*[@id='Email']")
-    public WebElement EditUserEmail;
-
-    @FindBy (xpath = "//*[@id='NameSurname']")
-    public WebElement EditUserFullNameBox;
-
-    @FindBy (xpath = "//*[@id='PhoneNo']")
-    public WebElement EditUserPhoneNoBox;
-
-    @FindBy (xpath = "//*[@id='SSN']")
-    public WebElement EditUserSSNBox;
-
-    @FindBy(xpath = "//*[@id='DrivingLicense']")
-    public WebElement EditUserDrivinglicenceBox;
-
-    @FindBy (xpath = "//*[@id='IDCountry']")
-    public WebElement EditUserCountrySelect;
-
-    @FindBy (xpath = "//*[@id='IDState']")
-    public WebElement EditUserStateSelect;
 
     @FindBy (xpath = "//*[@id='Address']")
-    public WebElement  EditUserAddressBox;
+    public WebElement  EditHotelAddressBox;
 
-    @FindBy (xpath = "//*[@id='WorkingSector']")
-    public WebElement EditUserWorkingSectorBox;
+    @FindBy (xpath = "//*[@id='Email']")
+    public WebElement  EditHotelEmailBox;
 
-    @FindBy (xpath = "//*[@id='BirthDate']")
-    public WebElement  EditUserBirthDateBox;
 
-    @FindBy (xpath = "//*[@id='IDRole']")
-    public WebElement EditUserRoleSelect;
+    @FindBy(xpath = "//*[@id='IDGroup']")
+    public WebElement EditHotelGruopSelect;
 
-    @FindBy (xpath = "(//*[@id=\"uniform-Approved\"])[1]")
-    public WebElement EditUserApprovedYesButonu;
+    @FindBy (xpath = "(//*[text()='Save'])[1]")
+    public WebElement EditHotelSaveButonu;
 
-    @FindBy (xpath = "(//*[@id=\"uniform-Approved\"])[2]")
-    public WebElement EditUserApprovedNoButonu;
+    @FindBy (xpath = "(//*[text()='Delete'])[1]")
+    public WebElement EditHotelDeleteButonu;
 
-    @FindBy (xpath = "//*[text()='Save']")
-    public WebElement EditUserSaveButonu;
+    @FindBy (xpath = "(//*[text()='Photos'])[1]")
+    public WebElement EditHotelPhotosButonu;
 
-    @FindBy (xpath = "//*[text()='Delete']")
-    public WebElement EditUserDeleteButonu;
+    @FindBy (xpath = "(//*[text()='Properties'])[1]")
+    public WebElement EditHotelPropertiesButonu;
+
+
+
 
 
 
