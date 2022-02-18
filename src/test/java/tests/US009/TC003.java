@@ -5,43 +5,31 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.AnaSayfaPage;
-import pages.LoginPage;
-import pages.RoomReservationsPage;
-import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
+import static utilities.ObjectInitialiser.*;
 
 public class TC003 {
-
+    JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
     @Test
     public void testCase3() throws InterruptedException {
 
-        Driver.getDriver().get(ConfigReader.getProperty("HMCURL"));
-        AnaSayfaPage anaSayfaPage = new AnaSayfaPage();
-        RoomReservationsPage roomReservationsPage = new RoomReservationsPage();
-        LoginPage loginPage = new LoginPage();
-        anaSayfaPage.mainLoginLinki.click();
-        loginPage.LoginUsernameBox.sendKeys(ConfigReader.getProperty("ManagerUsername"));
-        loginPage.LoginPasswordBox.sendKeys(ConfigReader.getProperty("ManagerPassword"));
-        loginPage.GirisLoginButon.click();
-        roomReservationsPage.hotelManagementList.click();
-        roomReservationsPage.roomReservationsList.click();
 
-        Thread.sleep(500);
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        roomReservationsPage.roomReservationsGiris();
+
         js.executeScript("scroll(0, 250);");
 
         roomReservationsPage.ContactPhoneBox.sendKeys("(312) 321-3211");
-        Thread.sleep(1000);
 
         js.executeScript("arguments[0].scrollBy(500,0);", roomReservationsPage.reservationsListSagaKaydir);
-        Thread.sleep(1000);
+        ReusableMethods.waitFor(1);
         roomReservationsPage.searchButon.click();
-        Thread.sleep(1500);
+        ReusableMethods.waitFor(1);
         roomReservationsPage.detailsButon.click();
-        Thread.sleep(500);
+        ReusableMethods.waitFor(1);
 
         roomReservationsPage.propertiesButon.click();
+        ReusableMethods.waitFor(2);
         roomReservationsPage.codeBox.clear();
         roomReservationsPage.valueBox.clear();
         roomReservationsPage.codeBox.sendKeys("111"+ Keys.TAB+"value");
@@ -49,12 +37,12 @@ public class TC003 {
         roomReservationsPage.updateButon.click();
         WebElement actual=roomReservationsPage.updateSuccesfullyElementi;
 
-        Thread.sleep(1500);
+        ReusableMethods.waitFor(1);
 
-        Assert.assertTrue(roomReservationsPage.updateSuccesfullyElementi.isDisplayed());
+        Assert.assertTrue(actual.isDisplayed());
         Thread.sleep(1500);
         roomReservationsPage.updateSuccesfullyOk.click();
-
+        // ok'a basinca popUp kapanmiyor
         Driver.closeDriver();
     }
 

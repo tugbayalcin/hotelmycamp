@@ -17,8 +17,10 @@ public class TC_002 {
     @Test
     public void test() throws InterruptedException {
 
+
 // 1-Yönetici olarak  https://www.hotelmycamp.com/ Url ile giriş yapılır
     reusableMethods.yöneticiGiris();
+
 
 //2-LIST OF USERS yazısı görüntülendi
         Assert.assertTrue(hotelListPage.listofUserYazısı.isDisplayed());

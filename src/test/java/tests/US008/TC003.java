@@ -19,9 +19,12 @@ public class TC003 {
         RoomReservationsPage roomReservationsPage=new RoomReservationsPage();
         LoginPage loginPage=new LoginPage();
         anaSayfaPage.mainLoginLinki.click();
-        loginPage.LoginUsernameBox.sendKeys(ConfigReader.getProperty("KullaniciUsername"));
-        loginPage.LoginPasswordBox.sendKeys(ConfigReader.getProperty("KullaniciPassword"));
+        loginPage.LoginUsernameBox.sendKeys(ConfigReader.getProperty("ManagerUsername"));
+        loginPage.LoginPasswordBox.sendKeys(ConfigReader.getProperty("ManagerPassword"));
         loginPage.GirisLoginButon.click();
+        roomReservationsPage.hotelManagementList.click();
+        roomReservationsPage.roomReservationsList.click();
+        roomReservationsPage.addRoomReservationsWebElement.click();
 
 
 

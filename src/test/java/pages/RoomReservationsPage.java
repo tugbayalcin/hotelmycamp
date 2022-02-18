@@ -1,12 +1,15 @@
 package pages;
 
 import com.github.javafaker.Faker;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
@@ -62,10 +65,10 @@ public class RoomReservationsPage {
     @FindBy (xpath = "(//a[@data-toggle='tab'])[2]")
     public WebElement propertiesButon;
 
-    @FindBy (xpath = "//input[@id='product_barcodeCode_170']")
+    @FindBy (xpath = "//input[@id='product_barcodeCode_197']")
     public WebElement codeBox;
 
-    @FindBy(xpath = "//textarea[@id='product_barcode_170']")
+    @FindBy(xpath = "//textarea[@id='product_barcode_197']")
     public WebElement valueBox;
 
     @FindBy(xpath = "(//a[@class='btn default btn-sm'])[1]")
@@ -98,6 +101,44 @@ public class RoomReservationsPage {
     @FindBy(xpath = "//div[@class=‘modal-content’]")
     public WebElement roomSuccesfullyYazisi;
 
+    @FindBy(xpath = "//label[text()='DateEnd']")
+    public WebElement roomReservationsBosTik;
+
+
+    public void roomReservationsGiris() throws InterruptedException {
+
+        Driver.getDriver().get(ConfigReader.getProperty("HMCURL"));
+        AnaSayfaPage anaSayfaPage = new AnaSayfaPage();
+        RoomReservationsPage roomReservationsPage = new RoomReservationsPage();
+        LoginPage loginPage = new LoginPage();
+        anaSayfaPage.mainLoginLinki.click();
+        loginPage.LoginUsernameBox.sendKeys(ConfigReader.getProperty("ManagerUsername"));
+        loginPage.LoginPasswordBox.sendKeys(ConfigReader.getProperty("ManagerPassword"));
+        loginPage.GirisLoginButon.click();
+        roomReservationsPage.hotelManagementList.click();
+        roomReservationsPage.roomReservationsList.click();
+
+        Thread.sleep(500);
+    }
+
+
+   // US008
+   @FindBy (xpath = "//select[@id='IDUser']")
+   public WebElement createReservationsidUserDropDownElementi;
+
+    @FindBy (xpath = "//select[@id='IDHotelRoom']")
+    public WebElement createReservationsidUserHotelRoomDropDownElementi;
+
+    @FindBy (xpath = "//input[@id='Price']")
+    public WebElement createReservationspriceBoxElementi;
+
+    @FindBy(xpath = "//input[@id='AdultAmount']")
+    public WebElement createReservationsAdultAmount;
+
+    @FindBy(xpath = "(//button[@type='button'])[8]")
+    public WebElement createReservationsOkButon;
+
+
     //-----------------------
 
     Faker faker = new Faker();
@@ -126,36 +167,36 @@ public class RoomReservationsPage {
     public WebElement dateEndWebElement;
 
     //AdultAmount webelement
-    @FindBy(id="AdultAmount")
+    @FindBy(xpath = "//input[@id='AdultAmount']")
     public WebElement adultAmountWebElement;
 
     //ChildrenAmount webelement
-    @FindBy(id="ChildrenAmount")
+    @FindBy(xpath="//input[@id='ChildrenAmount']")
     public WebElement childrenAmountWebElement;
 
     //ContactNameSurname webelement
-    @FindBy (id="ContactNameSurname")
+    @FindBy (xpath="//input[@id='ContactNameSurname']")
     public WebElement contactNameSurnameWebElement;
 
     //ContactPhone webelement
-    @FindBy (id="ContactPhone")
+    @FindBy (xpath="//input[@id='ContactPhone']")
     public WebElement contactPhoneWebElement;
 
     //ContactEmail webelement
-    @FindBy (id = "ContactEmail")
+    @FindBy (xpath = "//input[@id='ContactEmail']")
     public WebElement contactEmailWebElement;
 
     //Notes webelement
-    @FindBy (id = "Notes")
+    @FindBy (xpath = "//input[@id='Notes']")
     public WebElement notesWebElement;
 
     //Approved webelement
-    @FindBy (id="Approved")
-    public WebElement approvedWebElement;
+    @FindBy (xpath = "//div[@id='uniform-Approved']")
+    public WebElement approvedWebElementCheckBox;
 
     //IsPaid webelement
-    @FindBy (id = "IsPaid")
-    public WebElement isPaidWebElement;
+    @FindBy (xpath = "//div[@id='uniform-IsPaid']")
+    public WebElement isPaidWebElementCheckBox;
 
     //Save button webelement
     @FindBy(id = "btnSubmit")
@@ -200,35 +241,67 @@ public class RoomReservationsPage {
         DateTimeFormatter duzenliDateStart = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         String localDateStr = eklenmisLocalDate.format(duzenliDateStart);
         dateStartWebElement.click();
+        dateStartWebElement.clear();
         dateStartWebElement.sendKeys(localDateStr);
     }
     //dateEnd
-    public void dateEnd() {
+    public void dateEnd() throws InterruptedException {
         LocalDate localDate = LocalDate.now();
         LocalDate eklenmisLocalDate = localDate.plusDays(15);
         DateTimeFormatter duzenliDateStart = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         String localDateStr = eklenmisLocalDate.format(duzenliDateStart);
         dateStartWebElement.click();
+        dateEndWebElement.clear();
         dateEndWebElement.sendKeys(localDateStr);
+        roomReservationsBosTik.click();
     }
-    public void createHotelRoomReservation() {
+    JavascriptExecutor js= (JavascriptExecutor) Driver.getDriver();;
+    public void createHotelRoomReservation() throws InterruptedException {
         Actions actions = new Actions(Driver.getDriver());
         selectUserDropdownElementSecimi();
+        Thread.sleep(1500);
+        js.executeScript("javascript:window.scrollBy(250,350)");
         selecthotelroomDropdownElementSecimi();
+        priceWebElement.clear();
         priceWebElement.sendKeys("300");
         dateStart();
         //ReusableMethods.waitFor(1);
         dateEnd();
+
         //ReusableMethods.waitFor(2);
-        actions.click(adultAmountWebElement).sendKeys("2").sendKeys(Keys.TAB).
-                sendKeys("2").sendKeys(Keys.TAB).
-                sendKeys(faker.name().lastName()).sendKeys(Keys.TAB).
-                sendKeys(faker.phoneNumber().cellPhone()).sendKeys(Keys.TAB).
-                sendKeys(faker.internet().emailAddress()).sendKeys(Keys.TAB).
-                sendKeys(faker.letterify("lkdflk").toLowerCase()).sendKeys(Keys.TAB).
-                click(approvedWebElement).sendKeys(Keys.TAB).
-                click(isPaidWebElement).sendKeys(Keys.TAB).
-                click(saveButtonWebElement).perform();
+        adultAmountWebElement.click();
+        adultAmountWebElement.clear();
+
+
+        adultAmountWebElement.sendKeys("3"); //calisti
+        childrenAmountWebElement.clear();
+        childrenAmountWebElement.sendKeys("4");
+        contactNameSurnameWebElement.clear();
+        contactNameSurnameWebElement.sendKeys("mehmet bulut");
+        contactPhoneWebElement.clear();
+        contactPhoneWebElement.sendKeys("(312) 111-1111");
+        contactEmailWebElement.clear();
+        contactEmailWebElement.sendKeys("mehmet@gmail.com");
+        notesWebElement.clear();
+        notesWebElement.sendKeys("null");
+        if(!approvedWebElementCheckBox.isSelected()){
+            approvedWebElementCheckBox.click();
+        }
+        if(isPaidWebElementCheckBox.isSelected()){
+            isPaidWebElementCheckBox.click();
+        }
+        saveButon.click();
+
+
+     //   actions.click(adultAmountWebElement).sendKeys("2").sendKeys(Keys.TAB).
+     //           sendKeys("2").sendKeys(Keys.TAB).
+     //           sendKeys(faker.name().lastName()).sendKeys(Keys.TAB).
+     //           sendKeys(faker.phoneNumber().cellPhone()).sendKeys(Keys.TAB).
+     //           sendKeys(faker.internet().emailAddress()).sendKeys(Keys.TAB).
+     //           sendKeys(faker.letterify("lkdflk").toLowerCase()).sendKeys(Keys.TAB).
+     //           click(approvedWebElementCheckBox).sendKeys(Keys.TAB).
+     //           click(isPaidWebElementCheckBox).sendKeys(Keys.TAB).
+     //           click(saveButtonWebElement).perform();
         ReusableMethods.waitFor(5);
 
     }

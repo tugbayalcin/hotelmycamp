@@ -36,4 +36,9 @@ public class TC001 {
         //9)List of hotels yazisi goruldugunu test et
 
     }
+
 }
+
+
+
+
