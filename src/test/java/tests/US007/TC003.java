@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import pages.HotelRoomsPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import static utilities.ObjectInitialiser.*;
 
 public class TC003 {
     HotelRoomsPage hotelRoomsPage=new HotelRoomsPage();
@@ -21,23 +22,23 @@ public class TC003 {
         //8-Bilgilerini değiştirmek istediği alanda DETAILS butonuna tıklanmalı
         //9-Değişiklik yapılacak olan sayfada "Edit Hotelroom" yazısı görüntülenmeli
         //10-Tüm değişiklikler ilgili alanlarda yapıldıktan sonra SAVE butonuna tıklanmalı
-        //"11-guncellemeler yapıldıktan sonra ""HotelRoom was updated successfully""
-        // yazısı görüntülenmeli"
+        //11-guncellemeler yapıldıktan sonra "HotelRoom was updated successfully" yazısı görüntülenmeli
 
+        hotelRoomsPage.managerLoginHotelRoomPages();
 
-        Driver.getDriver().get(ConfigReader.getProperty("HMCURL"));
-        hotelRoomsPage.loginLinki.click();
-        Thread.sleep(2000);
-        hotelRoomsPage.usernameBox.sendKeys(ConfigReader.getProperty("ManagerUsername"));
-        hotelRoomsPage.passwordBox.sendKeys(ConfigReader.getProperty("ManagerPassword"));
-        hotelRoomsPage.loginButonu.click();
-
-        Assert.assertTrue(hotelRoomsPage.listOfUsersYazisi.isDisplayed());
-        System.out.println("basarili sekilde giris yapildi");
-
+         hotelRoomsPage.hotelManagementLinki.click();
+        hotelRoomsPage.hotelRoomsLinki.click();
         Assert.assertTrue(hotelRoomsPage.listOfHotelRoomsYazisi.isDisplayed());
         hotelRoomsPage.detailsButonu.click();
         Assert.assertTrue(hotelRoomsPage.editHotelRoomYazisi.isDisplayed());
+        hotelRoomsPage.codeBox.clear();
+        Thread.sleep(1500);
+        hotelRoomsPage.codeBox.sendKeys("1110");
+        hotelRoomsPage.saveButonu.click();
+        Assert.assertTrue(hotelRoomsPage.hotelRoomWasUpdatedSuccessfullyYazisi.isDisplayed());
+
+
+
 
 
 

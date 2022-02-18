@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+import utilities.ConfigReader;
 import utilities.Driver;
 
 public class HotelRoomsPage {
@@ -122,5 +124,19 @@ public class HotelRoomsPage {
     @FindBy(xpath = "//tbody//tr//td[2]")
     public WebElement bodydekiTumDatalarListElementi;
 
+
+
+
+    public void managerLoginHotelRoomPages() throws InterruptedException {
+        HotelRoomsPage hotelRoomsPage=new HotelRoomsPage();
+        Driver.getDriver().get(ConfigReader.getProperty("HMCURL"));
+        hotelRoomsPage.loginLinki.click();
+        Thread.sleep(2000);
+        hotelRoomsPage.usernameBox.sendKeys(ConfigReader.getProperty("ManagerUsername"));
+        hotelRoomsPage.passwordBox.sendKeys(ConfigReader.getProperty("ManagerPassword"));
+        hotelRoomsPage.loginButonu.click();
+        Assert.assertTrue(hotelRoomsPage.listOfUsersYazisi.isDisplayed());
+        System.out.println("basarili sekilde giris yapildi");
+    }
 
 }

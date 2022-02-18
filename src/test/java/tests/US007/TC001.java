@@ -21,16 +21,7 @@ public class TC001 {
     @Test
     public void  TC01() throws InterruptedException {
 
-        Driver.getDriver().get(ConfigReader.getProperty("HMCURL"));
-        hotelRoomsPage.loginLinki.click();
-        Thread.sleep(2000);
-        hotelRoomsPage.usernameBox.sendKeys(ConfigReader.getProperty("ManagerUsername"));
-        Thread.sleep(2000);
-        hotelRoomsPage.passwordBox.sendKeys(ConfigReader.getProperty("ManagerPassword"));
-        hotelRoomsPage.loginButonu.click();
-        Assert.assertTrue(hotelRoomsPage.listOfUsersYazisi.isDisplayed());
-        System.out.println("basarili sekilde giris yapildi");
-
+         hotelRoomsPage.managerLoginHotelRoomPages();
     }
 
 }
