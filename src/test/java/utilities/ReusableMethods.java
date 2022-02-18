@@ -204,8 +204,12 @@ public class ReusableMethods {
 
         //6-Yönetici olarak giriş yapıldıgını test edelim.
         Assert.assertTrue(hotelListPage.listofUserYazısı.isDisplayed());
+    }
+
+    public static String randomSayiUret(int maxSayi) {
+        int uretilenSayi = (int) (Math.random() * maxSayi + 1);
 
 
-
+        return ""+uretilenSayi;
     }
 }

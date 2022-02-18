@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import pages.HotelRoomsPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class TC002 {
 
@@ -17,19 +18,12 @@ public class TC002 {
         //4-Password girildi
         //5-Login butonuna basıldı
         //6-LIST OF HOTELROOMS yazısı  görüntülendi
-        //7-Hotel Romms linkine tıklandı
+        //7-Hotel Rooms linkine tıklandı
         //8-'List of Hotel Rooms' yazisi görüntülendi
         //9- arama için ID BOX'a aranacak data girildi,SEARCH butonuna tıklandı
         //10-girilen bilgiler dogrultusunda tanımlı olan oda görüntülenmeli
 
-        Driver.getDriver().get(ConfigReader.getProperty("HMCURL"));
-        hotelRoomsPage.loginLinki.click();
-        Thread.sleep(2000);
-        hotelRoomsPage.usernameBox.sendKeys(ConfigReader.getProperty("ManagerUsername"));
-        hotelRoomsPage.passwordBox.sendKeys(ConfigReader.getProperty("ManagerPassword"));
-        hotelRoomsPage.loginButonu.click();
-        Assert.assertTrue(hotelRoomsPage.listOfUsersYazisi.isDisplayed());
-        System.out.println("basarili sekilde giris yapildi");
+        hotelRoomsPage.managerLoginHotelRoomPages();
 
         Assert.assertTrue(hotelRoomsPage.listOfHotelRoomsYazisi.isDisplayed());
         hotelRoomsPage.hotelManagementLinki.click();
@@ -38,7 +32,9 @@ public class TC002 {
         Assert.assertTrue(hotelRoomsPage.FoundTotal20Records.isDisplayed());
         System.out.println("sayfalar arasi gecis yapildi");
         hotelRoomsPage.hotelRoomsLinki.click();
-        hotelRoomsPage.odaIdBox.sendKeys("120");
+
+        hotelRoomsPage.odaIdBox.sendKeys(ReusableMethods.randomSayiUret(1000));
+
         hotelRoomsPage.searchButonu.click();
         Assert.assertTrue(hotelRoomsPage.foundTotal1RecordsYazisi.isDisplayed());
         System.out.println("Aranan kayit bulundu");
