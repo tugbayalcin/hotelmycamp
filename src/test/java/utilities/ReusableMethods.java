@@ -189,6 +189,7 @@ public class ReusableMethods {
         loginPage.GirisLoginButon.click();
         //6-Yönetici olarak giriş yapıldıgını test edelim.
         Assert.assertTrue(hotelListPage.listofUserYazısı.isDisplayed());
+
     }
     public static String randomSayiUret(int maxSayi)
     {
@@ -204,5 +205,6 @@ public class ReusableMethods {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }
