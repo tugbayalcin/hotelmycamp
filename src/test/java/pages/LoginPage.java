@@ -57,6 +57,7 @@ public class LoginPage {
     public WebElement ListOfUsersRoleBox ;
     @FindBy(xpath = "//*[@name='Approved']")
     public WebElement ListOfUsersApprovedBox ;
+
     @FindBy(xpath = " //i[@class='fa fa-download']")
     public WebElement DownloadButon ;
     @FindBy(xpath = "//button[@id='btnPrintTable']")
@@ -73,6 +74,9 @@ public class LoginPage {
     public WebElement  NoPermissions ;
     @FindBy(xpath = " //div[@class='validation-summary-errors']")
     public WebElement  TryAgainPlease ;
+
+    @FindBy(xpath = "(//div[@class='form-group'])[1]")
+    public WebElement userNameiyilmaz27Yazısı;
 
 
 }

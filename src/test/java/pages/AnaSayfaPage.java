@@ -108,6 +108,9 @@ public class AnaSayfaPage {
     @FindBy(xpath = "//nav[@id='ftco-navbar']")
     public WebElement anasayfaSayfaTamami;
 
+    @FindBy(xpath = "//h1[@class='mb-4 bread']")
+    public WebElement anaSayfaRoomsYazısı;
+
 
 }
 
