@@ -10,12 +10,13 @@ import pages.LoginPage;
 import pages.RoomReservationsPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.TestBaseRapor;
 
-public class TC003 {
+public class TC003 extends TestBaseRapor {
 
     @Test
     public void testCase3() throws InterruptedException {
-
+        extentTest=extentReports.createTest("TC003","Welcome to hotel bölümü,Our Rooms ve içerisindeki elementler gorunur olmali.");
         Driver.getDriver().get(ConfigReader.getProperty("HMCURL"));
         AnaSayfaPage anaSayfaPage = new AnaSayfaPage();
         RoomReservationsPage roomReservationsPage = new RoomReservationsPage();
@@ -24,11 +25,13 @@ public class TC003 {
         loginPage.LoginUsernameBox.sendKeys(ConfigReader.getProperty("KullaniciUsername"));
         loginPage.LoginPasswordBox.sendKeys(ConfigReader.getProperty("KullaniciPassword"));
         loginPage.GirisLoginButon.click();
+        extentTest.info("Giris yapildi");
         anaSayfaPage.anaSayfaHomeButon.click();
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         js.executeScript("arguments[0].scrollIntoView(true);", anaSayfaPage.anasayfaWelcomeToOurHotelYazisi);
         Thread.sleep(1500);
         Assert.assertTrue(anaSayfaPage.anasayfaWelcomeToOurHotelYazisi.isDisplayed());
+        extentTest.pass("Welcome To Our Hotel yazisi goruntulendi");
         js.executeScript("arguments[0].scrollIntoView(true);", anaSayfaPage.anasayfaWiewRoomDetails1);
         Thread.sleep(1500);
         Assert.assertTrue(anaSayfaPage.anasayfaWiewRoomDetails1.isDisplayed());
@@ -41,6 +44,7 @@ public class TC003 {
         js.executeScript("arguments[0].scrollIntoView(true);", anaSayfaPage.anasayfaMisafirYorumlari);
         Thread.sleep(1500);
         Assert.assertTrue(anaSayfaPage.anasayfaMisafirYorumlari.isDisplayed());
+        extentTest.pass("Misafir yorumlari goruntulendi");
 
         Driver.closeDriver();
     }

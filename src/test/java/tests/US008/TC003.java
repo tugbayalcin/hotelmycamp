@@ -8,12 +8,13 @@ import pages.LoginPage;
 import pages.RoomReservationsPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.TestBaseRapor;
 
-public class TC003 {
+public class TC003 extends TestBaseRapor {
 
     @Test
     public void testCase3() throws InterruptedException {
-
+        extentTest=extentReports.createTest("TC003","ADD ROOM RESERVATION butonu tiklanir olmali");
         Driver.getDriver().get(ConfigReader.getProperty("HMCURL"));
         AnaSayfaPage anaSayfaPage=new AnaSayfaPage();
         RoomReservationsPage roomReservationsPage=new RoomReservationsPage();
@@ -22,9 +23,11 @@ public class TC003 {
         loginPage.LoginUsernameBox.sendKeys(ConfigReader.getProperty("ManagerUsername"));
         loginPage.LoginPasswordBox.sendKeys(ConfigReader.getProperty("ManagerPassword"));
         loginPage.GirisLoginButon.click();
+        extentTest.info("Giris butonu tiklandi");
         roomReservationsPage.hotelManagementList.click();
         roomReservationsPage.roomReservationsList.click();
         roomReservationsPage.addRoomReservationsWebElement.click();
+        extentTest.info("Add Room Reservations tiklandi");
 
 
 
