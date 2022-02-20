@@ -19,16 +19,16 @@ public abstract class TestBaseRapor {
         extentReports = new ExtentReports();
         //rapor oluştuktan sonra raporunuz nereye eklensin istiyorsanız buraya yazıyorsunuz.
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-        String filePath = System.getProperty("user.dir") + "/test-output/Rapor"+date+".html"; //tarıh vererek her olusturlan bır oncekını sılmesını engelledık
+        String filePath = System.getProperty("user.dir") + "/test-output/Reports/Rapor"+date+".html"; //tarıh vererek her olusturlan bır oncekını sılmesını engelledık
         //oluşturmak istediğimiz raporu (html formatında) başlatıyoruz, filePath ile dosya yolunu belirliyoruz.
         extentHtmlReporter = new ExtentHtmlReporter(filePath);
         extentReports.attachReporter(extentHtmlReporter);
         // İstediğiniz bilgileri buraya ekeyebiliyorsunuz.
         extentReports.setSystemInfo("Enviroment","QA");
         extentReports.setSystemInfo("Browser", ConfigReader.getProperty("browser")); // chrome, firefox
-        extentReports.setSystemInfo("Automation Engineer", "Mehmet");
-        extentHtmlReporter.config().setDocumentTitle("amazon Arama Testi");
-        extentHtmlReporter.config().setReportName("amazon Arama Automation Reports");
+        extentReports.setSystemInfo("Automation Engineer", "QATEAM");
+        extentHtmlReporter.config().setDocumentTitle("HotelMyCamp Arama Testi");
+        extentHtmlReporter.config().setReportName("HotelMyCamp Full Automation Reports");
     }
     // Her test methodundan sonra eğer testte hata varsa, ekran görüntüsü alıp rapora ekliyor
     @AfterMethod(alwaysRun = true)
@@ -43,6 +43,7 @@ public abstract class TestBaseRapor {
         }
         Driver.closeDriver();
     }
+
     // Raporlandırmayı sonlandırmak icin
     @AfterTest(alwaysRun = true)
     public void tearDownTest() {
