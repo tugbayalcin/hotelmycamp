@@ -47,6 +47,7 @@ public abstract class TestBaseRapor {
     // Raporlandırmayı sonlandırmak icin
     @AfterTest(alwaysRun = true)
     public void tearDownTest() {
+
         extentReports.flush();
     }
 }
