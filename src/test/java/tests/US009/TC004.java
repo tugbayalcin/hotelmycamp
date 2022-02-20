@@ -5,17 +5,22 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import utilities.Driver;
+import utilities.ReusableMethods;
+import utilities.TestBaseRapor;
+
+import java.io.IOException;
+
 import static utilities.ObjectInitialiser.*;
 
-public class TC004 {
+public class TC004 extends TestBaseRapor {
     JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
     @Test
-    public void testCase5() throws InterruptedException {
+    public void testCase4() throws InterruptedException, IOException {
 
-
+        extentTest=extentReports.createTest("TC004","Reservation delete edilmeli");
 
         roomReservationsPage.roomReservationsGiris();
-
+        extentTest.info("giris yapildi");
 
         Thread.sleep(500);
 
@@ -35,8 +40,10 @@ public class TC004 {
         Thread.sleep(1500);
         js.executeScript("scrollBy(0, 500);",roomReservationsPage.deleteButon);
         roomReservationsPage.deleteButon.click();
+        extentTest.info("Delete butonu tiklandi");
+        ReusableMethods.getScreenShots("TC004","target/screenShot/US009-");
         Assert.assertTrue(roomReservationsPage.roomSuccesfullyYazisi.isDisplayed());
-
+        extentTest.pass("Delete Room Succesfully yazisi goruntulendi");
         Driver.closeDriver();
     }
 

@@ -9,13 +9,14 @@ import pages.LoginPage;
 import pages.RoomReservationsPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.TestBaseRapor;
 
-public class TC005 {
+public class TC005 extends TestBaseRapor {
 Select select;
 
     @Test
     public void testCase5() throws InterruptedException {
-
+        extentTest=extentReports.createTest("TC005","OK butonu tiklanir olmali");
         Driver.getDriver().get(ConfigReader.getProperty("HMCURL"));
         AnaSayfaPage anaSayfaPage=new AnaSayfaPage();
         RoomReservationsPage roomReservationsPage=new RoomReservationsPage();
@@ -24,6 +25,7 @@ Select select;
         loginPage.LoginUsernameBox.sendKeys(ConfigReader.getProperty("ManagerUsername"));
         loginPage.LoginPasswordBox.sendKeys(ConfigReader.getProperty("ManagerPassword"));
         loginPage.GirisLoginButon.click();
+        extentTest.info("Giris butonu tiklandi");
         roomReservationsPage.hotelManagementList.click();
         roomReservationsPage.roomReservationsList.click();
         roomReservationsPage.addRoomReservationsWebElement.click();
@@ -31,6 +33,7 @@ Select select;
         select.selectByIndex(3);
         select=new Select(roomReservationsPage.createReservationsidUserHotelRoomDropDownElementi);
         select.selectByIndex(2);
+        extentTest.pass("Dropdown'a degerler gonderildi");
         roomReservationsPage.createReservationspriceBoxElementi.sendKeys("300");
         roomReservationsPage.dateStart();
         roomReservationsPage.dateEnd();
@@ -44,8 +47,11 @@ Select select;
         roomReservationsPage.notesWebElement.sendKeys("bos");
         roomReservationsPage.approvedWebElementCheckBox.click();
         roomReservationsPage.isPaidWebElementCheckBox.click();
+        extentTest.info("Tum degerler girildi");
         roomReservationsPage.saveButtonWebElement.click();
+        extentTest.info("Save butonu tiklandi");
         roomReservationsPage.createReservationsOkButon.click();
+        extentTest.info("OK butonu tiklandi");
 
         
 
