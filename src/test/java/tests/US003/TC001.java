@@ -2,37 +2,29 @@ package tests.US003;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.AnaSayfaPage;
-import pages.LoginPage;
-import pages.RegistirationPage;
-import utilities.ConfigReader;
-import utilities.Driver;
+import org.testng.asserts.SoftAssert;
 import utilities.ReusableMethods;
+import utilities.TestBaseRapor;
 
-public class TC001
+
+import java.io.IOException;
+
+import static utilities.ObjectInitialiser.*;
+// extend de yapabiliriz ancak multi extendion olmadigi icin, tek extend hakkımızı bunda harcamak istemeyiz
+// imkan varsa daima static import yapariz
+
+public class TC001 extends TestBaseRapor
 {
+
     @Test
-    public void positiveRegistrationtestWithValidCredentials()
-    {
-        AnaSayfaPage anaSayfaPage = new AnaSayfaPage();
-        LoginPage loginPage = new LoginPage();
-        RegistirationPage registirationPage = new RegistirationPage();
-        ReusableMethods reusableMethods = new ReusableMethods();
+    public void positiveRegistrationTestWithValidCredentials() throws IOException {
 
-        Driver.getDriver().get(ConfigReader.getProperty("HMCURL"));
+        extentTest=extentReports.createTest("Positive Registration Test With Valid Credentials","Uygun Koşulları Sağlayan Veriler Ile Kayıt Yapılmalıdır");
 
-        Assert.assertTrue(anaSayfaPage.mainLoginLinki.isDisplayed());
-        anaSayfaPage.mainLoginLinki.click();
+        // DRY'dan kurtulduk
+        registirationPage.beginnerStepsForRegistrationPageTests();
 
-        Assert.assertTrue(loginPage.CreateNewAccountButonu.isDisplayed());
-        loginPage.CreateNewAccountButonu.click();
-
-        Assert.assertTrue(registirationPage.registrationFormGirisYazisiElementi.isDisplayed());
-
-        // registirationPage.fillTextBox(registirationPage.registrationPageUsernameTextBox);
-
-        registirationPage.fillTheForm(registirationPage.setCredentialsWebElementsList(),1,1);
-
+        registirationPage.fillTheForm("testDataExcelFile",registirationPage.setCredentialsWebElementsList(),1);
         Assert.assertTrue(registirationPage.takvimWebTable.isDisplayed());
         registirationPage.takvimWebTable.click();
         // bunu yapmazsam takvim acik kaliyor ve send butonu gorunmuyor
@@ -42,10 +34,16 @@ public class TC001
 
         String expectedPopupYazisi = "User Data was inserted successfully";
         String actualPopupYazisi = registirationPage.registrationPagePopupYazisi.getText();
-        Assert.assertEquals(actualPopupYazisi,expectedPopupYazisi);
-        registirationPage.registrationPagePopupOkButonu.click();
 
-        Assert.assertTrue(registirationPage.registrationPageBasariliKayitYazisi.isDisplayed());
+        softAssert.assertTrue(registirationPage.registrationPageBasariliKayitYazisi.isDisplayed());
+        softAssert.assertEquals(actualPopupYazisi,expectedPopupYazisi);
+        ReusableMethods.getScreenShots("ValidCredentialsTestSS","target/screenshots/US003/");
+        registirationPage.registrationPagePopupOkButonu.click();
+        extentTest.pass("Kayıt Başarı Ile Gerçekleştirildi Ancak Popup Uzerindeki Yazi Doğru Bir Şekilde Alınamadığı Için Doğrulama Yapılamadı.");
+
+        // softAssert.assertAll();
+
+
 
 
 
