@@ -1,5 +1,4 @@
 package tests.US001;
-
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.Select;
@@ -11,9 +10,7 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
-
 public class TC002 extends TestBaseRapor {
-
     Select select;
     @Test
     public void testCase2() throws InterruptedException {
@@ -41,8 +38,6 @@ public class TC002 extends TestBaseRapor {
         select.selectByIndex(2);
         anaSayfaPage.anasayfaCheckAvailabilityButon.click();
         extentTest.info("Check Availability Buton tiklandi");
-
-         Driver.closeDriver();
+        Driver.closeDriver();
     }
-
 }

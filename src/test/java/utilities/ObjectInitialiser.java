@@ -1,5 +1,6 @@
 package utilities;
 
+
 import org.testng.asserts.SoftAssert;
 import pages.*;
 
@@ -17,6 +18,7 @@ public class ObjectInitialiser
    public static RoomReservationsPage roomReservationsPage = new RoomReservationsPage();
    public static String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
    public static SoftAssert softAssert = new SoftAssert();
+
 
 
 
