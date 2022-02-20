@@ -95,29 +95,65 @@ public class HotelListPage {
 
 
     @FindBy (xpath = "//*[@id='Address']")
-    public WebElement  EditHotelAddressBox;
 
-    @FindBy (xpath = "//*[@id='Email']")
-    public WebElement  EditHotelEmailBox;
-
-
-    @FindBy(xpath = "//*[@id='IDGroup']")
-    public WebElement EditHotelGruopSelect;
-
-    @FindBy (xpath = "(//*[text()='Save'])[1]")
-    public WebElement EditHotelSaveButonu;
-
-    @FindBy (xpath = "(//*[text()='Delete'])[1]")
-    public WebElement EditHotelDeleteButonu;
-
-    @FindBy (xpath = "(//*[text()='Photos'])[1]")
-    public WebElement EditHotelPhotosButonu;
-
-    @FindBy (xpath = "(//*[text()='Properties'])[1]")
-    public WebElement EditHotelPropertiesButonu;
+    public WebElement  EditUserAddressBox;
+    @FindBy (xpath = "//*[@id='WorkingSector']")
+    public WebElement EditUserWorkingSectorBox;
+    @FindBy (xpath = "//*[@id='BirthDate']")
+    public WebElement  EditUserBirthDateBox;
+    @FindBy (xpath = "//*[@id='IDRole']")
+    public WebElement EditUserRoleSelect;
+    @FindBy (xpath = "(//*[@id=\"uniform-Approved\"])[1]")
+    public WebElement EditUserApprovedYesButonu;
+    @FindBy (xpath = "(//*[@id=\"uniform-Approved\"])[2]")
+    public WebElement EditUserApprovedNoButonu;
+    @FindBy (xpath = "//*[text()='Save']")
+    public WebElement EditUserSaveButonu;
+    @FindBy (xpath = "//*[text()='Delete']")
+    public WebElement EditUserDeleteButonu;
 
 
+        //ADDHOTEL   sayfasi
 
+    @FindBy(xpath = "//span[@class='caption-subject font-green-sharp bold uppercase']")
+    public WebElement ListOfHotelsButonu;
+
+    @FindBy(xpath = "//span[@class='hidden-480']")
+    public WebElement ADDHOTELButonu;
+
+
+    @FindBy(xpath = "//div[@class='caption']")
+    public WebElement CreateHotelButonu;
+
+    @FindBy(xpath = "//input[@id='Code']")
+    public WebElement CreateHotelCodeButonu;
+
+    @FindBy(xpath = "//input[@id='Name']")
+    public WebElement CreateHotelNameButonu;
+
+    @FindBy(xpath = "//input[@id='Address']")
+    public WebElement CreateHotelAddressButonu;
+
+    @FindBy(xpath = "//input[@id='Phone']")
+    public WebElement CreateHotelPhoneButonu;
+
+    @FindBy(xpath = "//input[@id='Email']")
+    public WebElement CreateHotelEmailButonu;
+
+    @FindBy(xpath = "//select[@id='IDGroup']")
+    public WebElement CreateHotelIDGroupButonu;
+
+
+
+    @FindBy(xpath = "(//button[@class='btn blue'])[2]")
+    public WebElement CreateHotelSaveButonu;
+
+   @FindBy(xpath = "//div[@class='bootbox-body']")
+    public WebElement MesajKutusuButonu;
+
+
+    @FindBy(xpath = "//button[@class='btn btn-primary']")
+    public WebElement MesajOkButonu;
 
 
 
