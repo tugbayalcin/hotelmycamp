@@ -3,6 +3,7 @@ package tests.US003;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+import utilities.ConfigReader;
 import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
 
@@ -32,17 +33,30 @@ public class TC001 extends TestBaseRapor
         Assert.assertTrue(registirationPage.registrationPageSaveButonu.isDisplayed());
         registirationPage.registrationPageSaveButonu.click();
 
-        String expectedPopupYazisi = "User Data was inserted successfully";
-        String actualPopupYazisi = registirationPage.registrationPagePopupYazisi.getText();
+        ReusableMethods.waitFor(1);
+        Assert.assertTrue(registirationPage.registrationPagePopupYazisi.isDisplayed());
 
-        softAssert.assertTrue(registirationPage.registrationPageBasariliKayitYazisi.isDisplayed());
-        softAssert.assertEquals(actualPopupYazisi,expectedPopupYazisi);
-        ReusableMethods.getScreenShots("ValidCredentialsTestSS","target/screenshots/US003/");
+        String expectedPopupYazisi = ConfigReader.getProperty("validCredentialsTestDataExpectedPopupYazisi");
+        //String actualPopupYazisi = registirationPage.registrationPagePopupYazisi.getText();
+        String actualPopupYazisi = registirationPage.registrationPagePopupYazisi.getAttribute("innerText");
+        // bu kodu kullanabilirler bununla textti aliniyor
+
+        Assert.assertEquals(actualPopupYazisi,expectedPopupYazisi);
+
         registirationPage.registrationPagePopupOkButonu.click();
-        extentTest.pass("Kayıt Başarı Ile Gerçekleştirildi Ancak Popup Uzerindeki Yazi Doğru Bir Şekilde Alınamadığı Için Doğrulama Yapılamadı.");
+        ReusableMethods.waitFor(1);
 
-        // softAssert.assertAll();
+        ReusableMethods.hooverByJS(registirationPage.registerPageHeader);
+        Assert.assertTrue(registirationPage.registrationPageBasariliKayitYazisi.isDisplayed());
+        String expectedBasariliKayitYazisi= ConfigReader.getProperty("validCredentialsTestDataExpectedexpectedBasariliKayitYazisi");
+        String actualBasariliKayitYazisi= registirationPage.registrationPageBasariliKayitYazisi.getAttribute("innerText");
+        Assert.assertEquals(actualBasariliKayitYazisi,expectedBasariliKayitYazisi);
 
+        extentTest.pass("Kayıt Başarı Ile Gerçekleştirildi");
+
+
+
+        // pass
 
 
 
