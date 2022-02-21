@@ -24,7 +24,7 @@ public class HotelRoomsPage {
     public WebElement usernameBox;
 
     @FindBy(id="Password")
-    public WebElement passwordBox;
+    public WebElement passwordBox;  
 
     @FindBy(id="btnSubmit")
     public WebElement loginButonu;
@@ -130,6 +130,27 @@ public class HotelRoomsPage {
 
     @FindBy(xpath = "//tbody//tr//td[2]")
     public WebElement bodydekiTumDatalarListElementi;
+
+    @FindBy(xpath = "//a[@href='/Rooms/8']")
+    public WebElement tripleOdaSeçeneğiButonu;
+
+    @FindBy(xpath = "//span[text()='$225.00']")
+    public WebElement doubleRoom225DolarYazısı;
+
+    @FindBy(xpath ="//a[@href='/account/logon?returnUrl=%2FRoomDetail%2F2']")
+    public WebElement logInButonuDoubleRoom;
+
+    @FindBy(xpath = "//select[@id='AdultCount']")
+    public WebElement selectAdultCountButonu;
+
+    @FindBy(xpath = "//select[@id='IDRoomType']")
+    public WebElement selectRoomTypeButonu;
+
+    @FindBy(xpath = "//input[@type='submit']")
+    public  WebElement advancedSearchButonu;
+
+    @FindBy(xpath = "//a[text()='Book Now ']")
+    public WebElement bookNowButonuDoubleOda;
 
 
 
