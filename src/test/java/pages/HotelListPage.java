@@ -112,8 +112,8 @@ public class HotelListPage {
 
 
     @FindBy (xpath = "//*[@id='Address']")
-
     public WebElement  EditUserAddressBox;
+
     @FindBy (xpath = "//*[@id='WorkingSector']")
     public WebElement EditUserWorkingSectorBox;
     @FindBy (xpath = "//*[@id='BirthDate']")
@@ -137,7 +137,6 @@ public class HotelListPage {
 
     @FindBy(xpath = "//span[@class='hidden-480']")
     public WebElement ADDHOTELButonu;
-
 
     @FindBy(xpath = "//div[@class='caption']")
     public WebElement CreateHotelButonu;

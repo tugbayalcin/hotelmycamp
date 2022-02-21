@@ -78,8 +78,7 @@ public class LoginPage {
     @FindBy(xpath = "(//div[@class='form-group'])[1]")
     public WebElement userNameiyilmaz27Yazısı;
 
-    @FindBy(xpath = "(//div[@class='form-group'])[1]")
-    public WebElement userNameiyilmaz27Yazısı;
+
 
 
 }
