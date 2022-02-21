@@ -24,7 +24,7 @@ public class HotelRoomsPage {
     public WebElement usernameBox;
 
     @FindBy(id="Password")
-    public WebElement passwordBox;
+    public WebElement passwordBox;  
 
     @FindBy(id="btnSubmit")
     public WebElement loginButonu;
