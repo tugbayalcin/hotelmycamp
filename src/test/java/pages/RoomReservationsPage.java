@@ -104,6 +104,27 @@ public class RoomReservationsPage {
     @FindBy(xpath = "//label[text()='DateEnd']")
     public WebElement roomReservationsBosTik;
 
+    @FindBy(xpath = "//select[@id='AdultCount']")
+    public WebElement selectAdultCountButonu;
+
+    @FindBy(xpath = "//select[@id='ChildrenCount']")
+    public WebElement selectChildrenCountButonu;
+
+    @FindBy(xpath = "//select[@name='CreditCardExpirationYear']")
+    public WebElement krediKartExprationYear;
+
+    @FindBy(xpath = "//select[@name='CreditCardExpirationMonth']")
+    public WebElement krediKartExprationMonth;
+
+    @FindBy(xpath = "//input[@id='NameSurname']")
+    public WebElement isimSoyisimKutusuRezevasyonSayfası;
+
+    @FindBy(xpath = "//input[@value='Book this room']")
+    public WebElement bookThisRoomButonu;
+
+    @FindBy(xpath = "(//div[text()='Reservation was made successfully'])[2]")
+    public WebElement succesfullyYazısı;
+
 
     public void roomReservationsGiris() throws InterruptedException {
 

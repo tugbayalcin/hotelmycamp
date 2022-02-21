@@ -55,11 +55,11 @@ public class TC_004 extends TestBaseRapor {
 
         //8-Sayfanın en altına inilir
         JavascriptExecutor jse=(JavascriptExecutor) Driver.getDriver();
-        jse.executeScript("arguments[0].scrollIntoView(true);",hotelListPage.EditHotelDeleteButonu);
+        jse.executeScript("arguments[0].scrollIntoView(true);",hotelListPage.EditUserDeleteButonu);
 
         //9-  Delete Hotel butonuna tıklanır
         Thread.sleep(2000);
-        hotelListPage.EditHotelDeleteButonu.click();
+        hotelListPage.EditUserDeleteButonu.click();
         extentTest.info("Silme işlemi yapıldı");
 
         //10- Would You Like To Continue  yazısının cıktıgını goruntule
