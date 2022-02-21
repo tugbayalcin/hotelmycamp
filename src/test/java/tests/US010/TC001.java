@@ -27,12 +27,15 @@ public class TC001 extends TestBaseRapor {
         //2- '"Rooms" menüsünü locate ediniz ve "Rooms" butonuna tıklayınız.
         anaSayfaPage.anasayfaRoomsButon.click();
         extentTest.info("ana sayfa rooms tıklandı");
+      
         //3- Açılan sayfada "Rooms" yazısının çıktığını test ediniz.
+
         Assert.assertTrue(anaSayfaPage.anaSayfaRoomsYazısı.isDisplayed());
         extentTest.pass("Rooms yazısı görüntelendi");
         Driver.closeDriver();
 
     }
+
 
 
 }
