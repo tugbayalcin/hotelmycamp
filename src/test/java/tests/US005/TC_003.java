@@ -82,7 +82,7 @@ public class TC_003  extends TestBaseRapor {
                 .perform();
 
         Thread.sleep(2000);
-        hotelListPage.EditHotelSaveButonu.click();
+        hotelListPage.EditUserSaveButonu.click();
         extentTest.info("İstene Güncellemeler yapıldı");
 
 

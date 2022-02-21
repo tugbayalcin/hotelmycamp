@@ -127,8 +127,6 @@ public class RoomReservationsPage {
 
 
 
-
-
     public void roomReservationsGiris() throws InterruptedException {
 
         Driver.getDriver().get(ConfigReader.getProperty("HMCURL"));

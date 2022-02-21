@@ -98,6 +98,14 @@ public class HotelListPage {
     @FindBy (xpath = "//*[@id='Code']")
     public WebElement  EditHotelCodeBox;
 
+    @FindBy (xpath = "(//*[text()='Save'])[1]")
+    public WebElement EditHotelSaveButonu;
+
+    @FindBy (xpath = "(//*[text()='Photos'])[1]")
+    public WebElement EditHotelPhotosButonu;
+
+    @FindBy (xpath = "(//*[text()='Properties'])[1]")
+    public WebElement EditHotelPropertiesButonu;
 
     @FindBy (xpath = "//*[@id='Name']")
     public WebElement  EditHotelNameBox;
