@@ -119,6 +119,9 @@ public class RegistirationPage extends TestBaseRapor {
     @FindBy(xpath = "//div[@class='datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top']")
     public WebElement takvimWebTable;
 
+    @FindBy(xpath = "//h1[@class='mb-4 bread']")
+    public WebElement registerPageHeader;
+
 
     //<editor-fold desc="Methods">
 
@@ -555,7 +558,7 @@ public class RegistirationPage extends TestBaseRapor {
         for (int i=baslangicSatir; i<bitisSatir ; i++)
         {
             registirationPage.beginnerStepsForRegistrationPageTests();
-            fillTheForm("testDataExcelFile",registirationPage.setCredentialsWebElementsList(),i);
+            fillTheFormWithoutDate("testDataExcelFile",registirationPage.setCredentialsWebElementsList(),i);
 
             Assert.assertTrue(registirationPage.takvimWebTable.isDisplayed());
             registirationPage.takvimWebTable.click();
@@ -665,11 +668,11 @@ public class RegistirationPage extends TestBaseRapor {
             } else {
 
                 ReusableMethods.hooverByJS(registrationPageUsernameTextBox);
-                registrationPageUsernameTextBox.sendKeys(ConfigReader.getProperty("testDataUsername"));
+                registrationPageUsernameTextBox.sendKeys(date+ConfigReader.getProperty("testDataUsername"));
                 ReusableMethods.hooverByJS(registrationPagePasswordTextBox);
                 registrationPagePasswordTextBox.sendKeys(ConfigReader.getProperty("testDataPassword"));
                 ReusableMethods.hooverByJS(registrationPageEmailTextBox);
-                registrationPageEmailTextBox.sendKeys(ConfigReader.getProperty("testDataEmail"));
+                registrationPageEmailTextBox.sendKeys(date+ConfigReader.getProperty("testDataEmail"));
                 ReusableMethods.hooverByJS(registrationPageFullNameTextBox);
                 registrationPageFullNameTextBox.sendKeys(ConfigReader.getProperty("testDataFullName"));
                 ReusableMethods.hooverByJS(registrationPagePhoneNoTextBox);
