@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+import utilities.ConfigReader;
 import utilities.Driver;
 
 public class LoginPage {
@@ -79,6 +81,16 @@ public class LoginPage {
     public WebElement userNameiyilmaz27Yazısı;
 
 
-
+    public void kullaniciLoginTest(){
+        Driver.getDriver().get(ConfigReader.getProperty("HMCURL"));
+        AnaSayfaPage anaSayfaPage=new AnaSayfaPage();
+        RoomReservationsPage roomReservationsPage=new RoomReservationsPage();
+        LoginPage loginPage=new LoginPage();
+        anaSayfaPage.mainLoginLinki.click();
+        loginPage.LoginUsernameBox.sendKeys(ConfigReader.getProperty("KullaniciUsername"));
+        loginPage.LoginPasswordBox.sendKeys(ConfigReader.getProperty("KullaniciPassword"));
+        loginPage.GirisLoginButon.click();
+        Assert.assertTrue(anaSayfaPage.anasayfaRoomsButon.isDisplayed());
+    }
 
 }
