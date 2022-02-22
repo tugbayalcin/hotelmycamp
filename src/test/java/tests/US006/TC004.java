@@ -58,7 +58,7 @@ public class TC004 extends TestBaseRapor {
 
         Thread.sleep(5000);
 
-        Assert.assertFalse(hotelRoomsPage.hotelRoomBasariylaEklendiYazisi.isDisplayed());
+        Assert.assertTrue(hotelRoomsPage.hotelRoomBasariylaEklendiYazisi.isDisplayed());
 
         extentTest.info("Hotel Room Basariyla Eklendi Yazisi Goruntulendi");
 

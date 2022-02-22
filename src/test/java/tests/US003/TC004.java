@@ -1,8 +1,10 @@
 package tests.US003;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utilities.ConfigReader;
+import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
 
@@ -10,7 +12,7 @@ import static utilities.ObjectInitialiser.*;
 
 public class TC004 extends TestBaseRapor
 {
-    @Test
+    @Test (priority = 1)
     public void negativeRegistrationTestWithInvalidEmail()
     {
         extentTest=extentReports.createTest("Negative Registration Test With Invalid Email","Gecersiz Bir Email Adresi Ile Kayıt Yapılmamalıdır");
@@ -19,28 +21,33 @@ public class TC004 extends TestBaseRapor
     }
     // pass
 
-    @Test
+    @Test (priority = 2)
     public void negativeRegistrationTestWithNoneExistentEmail()
     {
         extentTest=extentReports.createTest("Negative Registration Test With None Existent Email","Var Olmayan Bir Email Adresi Ile Kayıt Yapılmamalıdır");
-        registirationPage.emailTestsWithPopup(17,18,"testDataInvalidEmail");
+        registirationPage.emailTestsWithPopupWithDate(17,18,"testDataInvalidEmail");
+
+        Assert.assertTrue(registirationPage.registrationPagePopupYazisi.isDisplayed());
+
         String unexpectedPopupYazisi = ConfigReader.getProperty("validCredentialsTestDataExpectedPopupYazisi");
         String actualPopupYazisi = registirationPage.registrationPagePopupYazisi.getAttribute("innerText");
         boolean kosul = unexpectedPopupYazisi.equals(actualPopupYazisi);
 
-        softAssert.assertFalse(kosul,"Gerçekleşmemesi Gereken Kayıt Başarıyla Gerçekleşti, Sistem Beklendigi Gibi Çalışmadı");
+        softAssert.assertFalse(kosul,"Kayıt Gerçekleşmedi, Detaylı Popup Yazısı Için Screenshot'a Bakınız.");
+       // registirationPage.registrationPagePopupOkButonu.click();
         ReusableMethods.getScreenShots("NoneExistEmailTestSS","target/screenshots/US003/");
-        registirationPage.registrationPagePopupOkButonu.click();
+
         extentTest.pass("Test Failed. Kayıt Gerçekleşmemesi Gerekirken Başarılı Bir Şekilde Gerçekleşiyor Ve Bu Bilgi Popup Ile Gosterildiği Ve Popup Uzerindeki Yazi Doğru Bir Şekilde Alınamadığı Için Doğrulama Yapılamadı.");
 
-        // softAssert.assertAll();
+        softAssert.assertAll();
+
     }
     // FAIL
     //  hata yazisi cikmiyor ve kayıt gerceklesiyor,
     // program duzgun calismiyor!!!!!!!!
 
 
-    @Test
+    @Test (priority = 3)
     public void negativeRegistrationTestWithAlreadyExistEmail()
     {
         extentTest=extentReports.createTest("Negative Registration Test With Already Exist Email","Zaten kullanilmiş Bir Email Ile Yeniden Kayıt Oluşturulmamalıdır");
@@ -55,7 +62,8 @@ public class TC004 extends TestBaseRapor
 
         extentTest.pass("Kayıt Gerçekleştirilmedi. Yani Test Başarılı Oldu. Sistem Beklendiği Gibi Çalışmaktadır");
 
+
+
         // pass
     }
-
 }

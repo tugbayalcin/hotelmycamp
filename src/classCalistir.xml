@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="belirli classlar">
+    <test name="classlar">
+        <classes>
+            <!-- commend line, like html -->
+            <class name="tests.US003.TC001"> </class>
+            <class name="tests.US003.TC002"> </class>
+            <class name="tests.US003.TC003"> </class>
+            <class name="tests.US003.TC004"> </class>
+            <class name="tests.US003.TC005"> </class>
+            <!-- class ismini manuel yazmiyoruz !!!! cok onemli bir detay
+             hiyerarsik yaz . koy kirmixzi ise henuz class'a ulasmamissin demektir-->
+
+            <!-- once save et, ardindan sag tus ile calistir,
+            yukarida class'lar ile yazdigin 3 test methodu sirasi ile calisacak -->
+        </classes>
+    </test>
+</suite>

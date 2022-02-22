@@ -133,7 +133,9 @@ public class RegistirationPage extends TestBaseRapor {
     {
         Driver.getDriver().get(ConfigReader.getProperty("HMCURL"));
 
+        ReusableMethods.waitFor(1);
         Assert.assertTrue(anaSayfaPage.mainLoginLinki.isDisplayed());
+        ReusableMethods.waitFor(1);
         anaSayfaPage.mainLoginLinki.click();
 
         Assert.assertTrue(loginPage.CreateNewAccountButonu.isDisplayed());
@@ -574,10 +576,34 @@ public class RegistirationPage extends TestBaseRapor {
             ReusableMethods.getScreenShots("AlreadyExistUsernameTestSS","target/screenshots/US003/");
             //softAssert.assertAll();
 
+        }
+    }
 
+    /**
+     * @author tugba
+     * This method is EMAIL TEST METHOD
+     */
+    public void emailTestsWithPopupWithDate(int baslangicSatir, int bitisSatir, String error)
+    {
 
+        for (int i=baslangicSatir; i<bitisSatir ; i++)
+        {
+            registirationPage.beginnerStepsForRegistrationPageTests();
+            fillTheForm("testDataExcelFile",registirationPage.setCredentialsWebElementsList(),i);
 
+            Assert.assertTrue(registirationPage.takvimWebTable.isDisplayed());
+            registirationPage.takvimWebTable.click();
+            // bunu yapmazsam takvim acik kaliyor ve send butonu gorunmuyor
 
+            Assert.assertTrue(registirationPage.registrationPageSaveButonu.isDisplayed());
+            registirationPage.registrationPageSaveButonu.click();
+
+            ReusableMethods.waitFor(3);
+            Assert.assertTrue(registrationPagePopupYazisi.isDisplayed());
+            String expectedPopupYazisi= ConfigReader.getProperty("testDatanoneExistEmailAddress");
+            softAssert.assertEquals(registrationPagePopupYazisi.getText(),expectedPopupYazisi);
+            ReusableMethods.getScreenShots("AlreadyExistUsernameTestSS","target/screenshots/US003/");
+            //softAssert.assertAll();
 
         }
     }
@@ -698,14 +724,19 @@ public class RegistirationPage extends TestBaseRapor {
                 ReusableMethods.waitFor(3);
                 Assert.assertTrue(registrationPagePopupYazisi.isDisplayed());
 
-                String expectedPopupYazisi = "User Data was inserted successfully";
-                String actualPopupYazisi = registirationPage.registrationPagePopupYazisi.getText();
-
-                softAssert.assertTrue(registirationPage.registrationPageBasariliKayitYazisi.isDisplayed());
+                String expectedPopupYazisi = ConfigReader.getProperty("validCredentialsTestDataExpectedPopupYazisi");
+                String actualPopupYazisi = registirationPage.registrationPagePopupYazisi.getAttribute("innerText");
                 softAssert.assertEquals(actualPopupYazisi,expectedPopupYazisi);
+
+                registrationPagePopupOkButonu.click();
+                ReusableMethods.hooverByJS(registerPageHeader);
+
+                softAssert.assertTrue(registirationPage.registrationPageBasariliKayitYazisi.isDisplayed(),"Kayıt Gerçekleşti Ancak Register Sayfası Açılamadı. Detaylı Bilgi Için Screenshot'a Bakınız");
 
                 ReusableMethods.getScreenShots("CountryTest_OtherCountries_SS","target/screenshots/US003/");
 
+
+                softAssert.assertAll();
             }
 
     }
