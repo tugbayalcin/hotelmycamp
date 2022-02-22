@@ -27,10 +27,8 @@ public class TC004 extends TestBaseRapor {
         //5-Login butonuna basıldı
         //6-Hotel Management listesinden Hotel Rooms tıklanır
         //7-LIST OF HOTELROOMS yazısı görüntülendi
-
         //8-Silmek istediği data üzerinde bulunan DETAILS butonuna tıklanır.
         //9-Silme işlemi yapılcak olan sayfada  "Edit Hotelroom" yazısı görüntülenir
-
         //10-Mevcut tablodaki tüm rezervasyon bilgileri silinir
         //11-İşlem yapılacak sayfanın en alt ksımına inilir.
         //12-DELETE  butonuna tıklanır
@@ -86,8 +84,6 @@ public class TC004 extends TestBaseRapor {
         ReusableMethods.getScreenShots("Couldn't delete room","target/screenshot/US004");
         extentTest.fail("Oda silme islemi yapılamadı");
 
-
     }
-
 
 }
