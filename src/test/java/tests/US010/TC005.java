@@ -18,7 +18,7 @@ import utilities.TestBaseRapor;
 
 public class TC005 extends TestBaseRapor {
     @Test
-    public void test05(){
+    public void test05()  {
 
         AnaSayfaPage anaSayfaPage = new AnaSayfaPage();
         RoomReservationsPage roomReservationsPage = new RoomReservationsPage();
