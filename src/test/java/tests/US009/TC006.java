@@ -22,7 +22,7 @@ public class TC006 extends TestBaseRapor {
         Assert.assertTrue(roomReservationsPage.girisYapilamadiYazisi.isDisplayed());
         extentTest.pass("Hatali password ile giris yapilamadigi goruntulendi");
 
-        Driver.closeDriver();
+   //     Driver.closeDriver();
     }
 
 }

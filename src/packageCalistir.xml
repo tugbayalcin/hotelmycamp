@@ -2,11 +2,8 @@
 <suite name="package calistirma">
     <test name="smoke test">
         <packages>
-
-
             <package name="tests.US010"></package>
-
-
         </packages>
     </test>
 </suite>
+

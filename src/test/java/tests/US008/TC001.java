@@ -29,7 +29,7 @@ public class TC001 extends TestBaseRapor {
         roomReservationsPage.hotelManagementList.click();
         extentTest.info("Hotel Management tiklandi");
 
-        Driver.closeDriver();
+
 
 
         Driver.closeDriver();

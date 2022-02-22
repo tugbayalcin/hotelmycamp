@@ -21,9 +21,7 @@ public class TC003 extends TestBaseRapor {
         extentTest.info("giris yapildi");
 
         js.executeScript("scroll(0, 250);");
-
         roomReservationsPage.ContactPhoneBox.sendKeys("(312) 321-3211");
-
         js.executeScript("arguments[0].scrollBy(500,0);", roomReservationsPage.reservationsListSagaKaydir);
         ReusableMethods.waitFor(1);
         roomReservationsPage.searchButon.click();
@@ -45,11 +43,10 @@ public class TC003 extends TestBaseRapor {
 
         Assert.assertTrue(actual.isDisplayed());
         extentTest.pass("Update Succesfully yazisi goruntulendi");
-        Thread.sleep(1500);
+        ReusableMethods.waitFor(2);
         roomReservationsPage.updateSuccesfullyOk.click();
         extentTest.info("Update Succesfully yazisi onaylandi");
-        // ok'a basinca popUp kapanmiyor
-        Driver.closeDriver();
+   //     Driver.closeDriver();
     }
 
 }

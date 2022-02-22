@@ -7,6 +7,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WindowType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
@@ -19,7 +20,7 @@ import java.util.Date;
 import static utilities.ObjectInitialiser.*;
 
 public class TC002 extends TestBaseRapor {
-
+    SoftAssert softAsserts=new SoftAssert();
     JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
     @Test
     public void testCase2() throws InterruptedException, IOException {
@@ -28,12 +29,8 @@ public class TC002 extends TestBaseRapor {
         roomReservationsPage.roomReservationsGiris();
 
         extentTest.info("giris yapildi");
-
-
         js.executeScript("scroll(0, 250);");
-
         roomReservationsPage.ContactPhoneBox.sendKeys("(312) 321-3211");
-
 
         js.executeScript("arguments[0].scrollBy(500,0);", roomReservationsPage.reservationsListSagaKaydir);
         ReusableMethods.waitFor(1);
@@ -41,17 +38,11 @@ public class TC002 extends TestBaseRapor {
         ReusableMethods.waitFor(2);
         roomReservationsPage.detailsButon.click();
         ReusableMethods.waitFor(1);
-
         extentTest.info("room reservations details buton tiklandi");
 
         roomReservationsPage.createHotelRoomReservation();
-
-     //   Driver.getDriver().switchTo().newWindow(WindowType.TAB); (WindowType.WINDOW)
-
         ReusableMethods.getScreenShots("TC002","target/screenShot/US009-");
-
-
-        Assert.assertTrue(roomReservationsPage.roomSuccesfullyYazisi.isDisplayed());
+        softAssert.assertTrue(roomReservationsPage.roomSuccesfullyYazisi.isDisplayed());
         extentTest.pass("Room reservations Succesfully yazisi goruntulendi");
    //      Driver.closeDriver();
     }
