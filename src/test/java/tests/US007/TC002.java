@@ -6,8 +6,9 @@ import pages.HotelRoomsPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+import utilities.TestBaseRapor;
 
-public class TC002 {
+public class TC002 extends TestBaseRapor {
 
     HotelRoomsPage hotelRoomsPage=new HotelRoomsPage();
     @Test
@@ -24,6 +25,7 @@ public class TC002 {
         //10-girilen bilgiler dogrultusunda tanımlı olan oda görüntülenmeli
 
         hotelRoomsPage.managerLoginHotelRoomPages();
+        extentTest=extentReports.createTest("TC002","Istenen odanin aratilmasi");
 
         Assert.assertTrue(hotelRoomsPage.listOfHotelRoomsYazisi.isDisplayed());
         hotelRoomsPage.hotelManagementLinki.click();
@@ -38,7 +40,8 @@ public class TC002 {
         hotelRoomsPage.searchButonu.click();
         Assert.assertTrue(hotelRoomsPage.foundTotal1RecordsYazisi.isDisplayed());
         System.out.println("Aranan kayit bulundu");
-
+        ReusableMethods.waitFor(2);
+        extentTest.pass("Aranan oda bulundu");
 
     }
 }

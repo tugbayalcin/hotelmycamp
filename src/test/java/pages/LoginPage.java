@@ -25,6 +25,8 @@ public class LoginPage {
     public WebElement CreateNewAccountButonu;
     @FindBy(xpath = "//div[@class='caption']")
     public WebElement ListOfUsers;
+    @FindBy(xpath = "//*[@class='error']")
+    public WebElement ThisFieldIsRequired;
     @FindBy(xpath = "//div[@class='actions']")
     public WebElement AddUserButon;
     @FindBy(xpath = "//*[@id='itemsExportTypes']")
@@ -55,5 +57,28 @@ public class LoginPage {
     public WebElement ListOfUsersRoleBox ;
     @FindBy(xpath = "//*[@name='Approved']")
     public WebElement ListOfUsersApprovedBox ;
+
+    @FindBy(xpath = " //i[@class='fa fa-download']")
+    public WebElement DownloadButon ;
+    @FindBy(xpath = "//button[@id='btnPrintTable']")
+    public  WebElement PrintButon ;
+    @FindBy(xpath = "//div[@class='caption']")
+    public WebElement  CreateUser ;
+    @FindBy(xpath = " //input[@id='Address']")
+    public WebElement  EditUserAddress ;
+    @FindBy(xpath = "//button[@class='btn green']")
+    public WebElement  EditUserSaveButon ;
+    @FindBy(xpath = "//button[@class='btn btn-primary']")
+    public WebElement  NoPermissionsOKButton ;
+    @FindBy(xpath = "//div[@class='bootbox-body']")
+    public WebElement  NoPermissions ;
+    @FindBy(xpath = " //div[@class='validation-summary-errors']")
+    public WebElement  TryAgainPlease ;
+    //**********************
+    @FindBy(xpath = "(//div[@class='form-group'])[1]")
+    public WebElement userNameiyilmaz27Yazısı;
+
+
+
 
 }
