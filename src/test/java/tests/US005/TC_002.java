@@ -23,6 +23,8 @@ public class TC_002  extends TestBaseRapor {
         extentTest=extentReports.createTest("US-005-TC002","Otel Listesi sayfasının kontrol Testi");
 
 
+
+
     // 1-Yönetici olarak  https://www.hotelmycamp.com/ Url ile giriş yapılır
         reusableMethods.yöneticiGiris();
 
