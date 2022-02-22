@@ -11,7 +11,6 @@ public class TC003 extends TestBaseRapor
     public void negativeRegsistrationTestWithInvalidPassword()
     {
         extentTest=extentReports.createTest("Negative Regsistration Test With Invalid Password","Uygun Koşulları Sağlamayan Password'ler Ile Kayıt Yapılmamalıdır");
-        // degisiklik yapılacak
         registirationPage.passwordTests(8,13,registirationPage.setPasswordErrorList());
         extentTest.pass("Test Başarılı");
 

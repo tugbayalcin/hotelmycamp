@@ -76,6 +76,15 @@ public class HotelListPage {
     @FindBy (xpath = "//*[text()='1188']")
     public WebElement listOfHotel1188noluHotelID;
 
+    @FindBy (xpath = "(//*[@class='btn btn-xs default'])[2]")
+    public WebElement ListOfHotelDetailsButonu;
+
+
+    @FindBy (xpath ="//*[@id=\"datatable_ajax\"]/tbody/tr[1]/td[2]")
+    public WebElement ListOfHotelSayfasındaGuncellenenHotelınKontrolu;
+
+
+
     //*************************
     // ***********************
     // ** Edit Hotel sayfası locateleri *****
@@ -89,26 +98,8 @@ public class HotelListPage {
     @FindBy (xpath = "//*[@id='Code']")
     public WebElement  EditHotelCodeBox;
 
-
-    @FindBy (xpath = "//*[@id='Name']")
-    public WebElement  EditHotelNameBox;
-
-
-    @FindBy (xpath = "//*[@id='Address']")
-    public WebElement  EditHotelAddressBox;
-
-    @FindBy (xpath = "//*[@id='Email']")
-    public WebElement  EditHotelEmailBox;
-
-
-    @FindBy(xpath = "//*[@id='IDGroup']")
-    public WebElement EditHotelGruopSelect;
-
     @FindBy (xpath = "(//*[text()='Save'])[1]")
     public WebElement EditHotelSaveButonu;
-
-    @FindBy (xpath = "(//*[text()='Delete'])[1]")
-    public WebElement EditHotelDeleteButonu;
 
     @FindBy (xpath = "(//*[text()='Photos'])[1]")
     public WebElement EditHotelPhotosButonu;
@@ -116,9 +107,86 @@ public class HotelListPage {
     @FindBy (xpath = "(//*[text()='Properties'])[1]")
     public WebElement EditHotelPropertiesButonu;
 
+    @FindBy (xpath = "//*[@id='Name']")
+    public WebElement  EditHotelNameBox;
+
+
+    @FindBy (xpath = "//*[@id='Address']")
+    public WebElement  EditUserAddressBox;
+
+    @FindBy (xpath = "//*[@id='WorkingSector']")
+    public WebElement EditUserWorkingSectorBox;
+    @FindBy (xpath = "//*[@id='BirthDate']")
+    public WebElement  EditUserBirthDateBox;
+    @FindBy (xpath = "//*[@id='IDRole']")
+    public WebElement EditUserRoleSelect;
+    @FindBy (xpath = "(//*[@id=\"uniform-Approved\"])[1]")
+    public WebElement EditUserApprovedYesButonu;
+    @FindBy (xpath = "(//*[@id=\"uniform-Approved\"])[2]")
+    public WebElement EditUserApprovedNoButonu;
+    @FindBy (xpath = "//*[text()='Save']")
+    public WebElement EditUserSaveButonu;
+    @FindBy (xpath = "//*[text()='Delete']")
+    public WebElement EditUserDeleteButonu;
+
+
+        //ADDHOTEL   sayfasi
+
+    @FindBy(xpath = "//span[@class='caption-subject font-green-sharp bold uppercase']")
+    public WebElement ListOfHotelsButonu;
+
+    @FindBy(xpath = "//span[@class='hidden-480']")
+    public WebElement ADDHOTELButonu;
+
+    @FindBy(xpath = "//div[@class='caption']")
+    public WebElement CreateHotelButonu;
+
+    @FindBy(xpath = "//input[@id='Code']")
+    public WebElement CreateHotelCodeButonu;
+
+    @FindBy(xpath = "//input[@id='Name']")
+    public WebElement CreateHotelNameButonu;
+
+    @FindBy (xpath = "//*[text()='Mariah Reinger']")
+    public WebElement EditHotelSecilenOtelAdı;
+
+    @FindBy (xpath = "//*[@class='bootbox-body']")
+    public WebElement EditHotelPopUp;
+
+    @FindBy (xpath = "//*[@class='btn btn-primary']")
+    public WebElement EditHotelPopUpOkButonu;
+
+    @FindBy (xpath = "//a[text()='Photos']")
+    public WebElement EditHotelPhotosButtonuSecilimi;
+
+    @FindBy(xpath = "//input[@id='Address']")
+    public WebElement CreateHotelAddressButonu;
+
+    @FindBy(xpath = "//input[@id='Phone']")
+    public WebElement CreateHotelPhoneButonu;
+
+    @FindBy(xpath = "//input[@id='Email']")
+    public WebElement CreateHotelEmailButonu;
+
+    @FindBy(xpath = "//select[@id='IDGroup']")
+    public WebElement CreateHotelIDGroupButonu;
 
 
 
+    @FindBy(xpath = "(//button[@class='btn blue'])[2]")
+    public WebElement CreateHotelSaveButonu;
 
+   @FindBy(xpath = "//div[@class='bootbox-body']")
+    public WebElement MesajKutusuButonu;
+
+
+    @FindBy(xpath = "//button[@class='btn btn-primary']")
+    public WebElement MesajOkButonu;
+
+    @FindBy (xpath = "//*[text()='Would you like to continue?']")
+    public WebElement EditHotelWouldYouLikeToContinuePopUp;
+
+    @FindBy (xpath ="//*[text()='Hotel was updated successfully']")
+    public WebElement EditHotelGüncellemeSavePopUp;
 
 }

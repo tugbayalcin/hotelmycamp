@@ -1,6 +1,8 @@
 package tests.US003;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
+import utilities.ConfigReader;
 import utilities.TestBaseRapor;
 
 import java.io.IOException;
@@ -20,6 +22,7 @@ public class TC005 extends TestBaseRapor
 
         extentTest.pass("Test Başarılı");
     }
+    // pass
     // country'yi bos irakmak demek, oraya hic dokunmamak demek
     // ve country bir dropdown oldugu icin, o hucre tamamen bos olamiyor,
     // default degeri select country kalmasi gerekiyor, test datasi buna gore olusturuldu
@@ -30,10 +33,18 @@ public class TC005 extends TestBaseRapor
     @Test
     public void countryStateRelationshipTest() {
         extentTest=extentReports.createTest("Country State Relationship Test","Ulke United States Olarak Secildiginde State Secilmeli Aksi Takdirde Kayıt Yapılmamalı, Ulke united States Dışında Bir Ulke Olarak Seçildiginde State Doldurulmak Zorunda Olmamalı Ve Kayıt Başarıyla Gerçekleşmeli");
-        // degisiklik yapılacak
+
         registirationPage.missingCountryStateRelationshipTest();
         // ss method icerisinde aliniyor
-        extentTest.pass("Kayıt Başarı Ile Gerçekleştirildi Ancak Popup Uzerindeki Yazi Doğru Bir Şekilde Alınamadığı Için Doğrulama Yapılamadı.");
+        Assert.assertTrue(registirationPage.registrationPagePopupYazisi.isDisplayed());
+        String expectedPopupYazisi = ConfigReader.getProperty("validCredentialsTestDataExpectedPopupYazisi");
+        //String actualPopupYazisi = registirationPage.registrationPagePopupYazisi.getText();
+        String actualPopupYazisi = registirationPage.registrationPagePopupYazisi.getAttribute("innerText");
+        Assert.assertEquals(actualPopupYazisi,expectedPopupYazisi);
+        registirationPage.registrationPagePopupOkButonu.click();
+        extentTest.pass("Ulke United States Ise State Bilgisi Doldurulmalıdır Hata Yazısı Gorundu, Değilse Kayıt Başarı Ile Gerçekleştirildi.");
+
+        // pass
 
     }
 
