@@ -24,7 +24,7 @@ public class TC005 extends TestBaseRapor {
         loginPage.GirisLoginButon.click();
         Assert.assertTrue(roomReservationsPage.girisYapilamadiYazisi.isDisplayed());
         extentTest.pass("Hatali kullanici adi ile giris yapilamadigi goruntulendi");
-        Driver.closeDriver();
+    //    Driver.closeDriver();
     }
 
 }

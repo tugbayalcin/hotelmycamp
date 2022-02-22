@@ -9,6 +9,7 @@ import pages.LoginPage;
 import pages.RoomReservationsPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
 
 public class TC005 extends TestBaseRapor {
@@ -51,6 +52,7 @@ Select select;
         roomReservationsPage.saveButtonWebElement.click();
         extentTest.info("Save butonu tiklandi");
         roomReservationsPage.createReservationsOkButon.click();
+        ReusableMethods.waitFor(2);
         extentTest.info("OK butonu tiklandi");
 
         

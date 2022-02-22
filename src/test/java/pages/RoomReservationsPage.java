@@ -65,10 +65,10 @@ public class RoomReservationsPage {
     @FindBy (xpath = "(//a[@data-toggle='tab'])[2]")
     public WebElement propertiesButon;
 
-    @FindBy (xpath = "//input[@id='product_barcodeCode_197']")
+    @FindBy (xpath = "(//input[@type='text'])[11]")
     public WebElement codeBox;
 
-    @FindBy(xpath = "//textarea[@id='product_barcode_197']")
+    @FindBy(xpath = "(//textarea[@class='form-control'])[1]")
     public WebElement valueBox;
 
     @FindBy(xpath = "(//a[@class='btn default btn-sm'])[1]")
