@@ -38,8 +38,10 @@ public class TC002 extends TestBaseRapor {
 
         Assert.assertTrue(loginPage.DownloadButon.isDisplayed());
 
+
         Assert.assertTrue(loginPage.PrintButon.isDisplayed());
         loginPage.PrintButon.click();
+
         ReusableMethods.waitFor(2);
 
         extentTest.pass("ListOfUsers görüntülendi");
