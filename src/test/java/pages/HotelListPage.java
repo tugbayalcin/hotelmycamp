@@ -76,6 +76,15 @@ public class HotelListPage {
     @FindBy (xpath = "//*[text()='1188']")
     public WebElement listOfHotel1188noluHotelID;
 
+    @FindBy (xpath = "(//*[@class='btn btn-xs default'])[2]")
+    public WebElement ListOfHotelDetailsButonu;
+
+
+    @FindBy (xpath ="//*[@id=\"datatable_ajax\"]/tbody/tr[1]/td[2]")
+    public WebElement ListOfHotelSayfasındaGuncellenenHotelınKontrolu;
+
+
+
     //*************************
     // ***********************
     // ** Edit Hotel sayfası locateleri *****
@@ -89,14 +98,22 @@ public class HotelListPage {
     @FindBy (xpath = "//*[@id='Code']")
     public WebElement  EditHotelCodeBox;
 
+    @FindBy (xpath = "(//*[text()='Save'])[1]")
+    public WebElement EditHotelSaveButonu;
+
+    @FindBy (xpath = "(//*[text()='Photos'])[1]")
+    public WebElement EditHotelPhotosButonu;
+
+    @FindBy (xpath = "(//*[text()='Properties'])[1]")
+    public WebElement EditHotelPropertiesButonu;
 
     @FindBy (xpath = "//*[@id='Name']")
     public WebElement  EditHotelNameBox;
 
 
     @FindBy (xpath = "//*[@id='Address']")
-
     public WebElement  EditUserAddressBox;
+
     @FindBy (xpath = "//*[@id='WorkingSector']")
     public WebElement EditUserWorkingSectorBox;
     @FindBy (xpath = "//*[@id='BirthDate']")
@@ -121,7 +138,6 @@ public class HotelListPage {
     @FindBy(xpath = "//span[@class='hidden-480']")
     public WebElement ADDHOTELButonu;
 
-
     @FindBy(xpath = "//div[@class='caption']")
     public WebElement CreateHotelButonu;
 
@@ -130,6 +146,18 @@ public class HotelListPage {
 
     @FindBy(xpath = "//input[@id='Name']")
     public WebElement CreateHotelNameButonu;
+
+    @FindBy (xpath = "//*[text()='Mariah Reinger']")
+    public WebElement EditHotelSecilenOtelAdı;
+
+    @FindBy (xpath = "//*[@class='bootbox-body']")
+    public WebElement EditHotelPopUp;
+
+    @FindBy (xpath = "//*[@class='btn btn-primary']")
+    public WebElement EditHotelPopUpOkButonu;
+
+    @FindBy (xpath = "//a[text()='Photos']")
+    public WebElement EditHotelPhotosButtonuSecilimi;
 
     @FindBy(xpath = "//input[@id='Address']")
     public WebElement CreateHotelAddressButonu;
@@ -158,6 +186,10 @@ public class HotelListPage {
     @FindBy(xpath = "//button[@class='btn btn-primary']")
     public WebElement MesajOkButonu;
 
+    @FindBy (xpath = "//*[text()='Would you like to continue?']")
+    public WebElement EditHotelWouldYouLikeToContinuePopUp;
 
+    @FindBy (xpath ="//*[text()='Hotel was updated successfully']")
+    public WebElement EditHotelGüncellemeSavePopUp;
 
 }

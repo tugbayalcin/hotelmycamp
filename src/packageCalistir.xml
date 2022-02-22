@@ -3,6 +3,7 @@
     <test name="smoke test">
         <packages>
             <package name="tests.US004"></package>
+
         </packages>
     </test>
 </suite>

@@ -31,7 +31,7 @@ public class TC001 extends TestBaseRapor {
         //6-Yönetici olarak giriş yapıldıgını test edelim.
         Assert.assertTrue(hotelListPage.listofUserYazısı.isDisplayed());
           extentTest.info("list of user yasisi goruntulendi");
-        Driver.closeDriver();
+       // Driver.closeDriver();
 
     }
 

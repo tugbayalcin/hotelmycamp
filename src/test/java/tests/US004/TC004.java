@@ -10,7 +10,9 @@ import pages.HotelListPage;
 import pages.LoginPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
+import static utilities.ObjectInitialiser.*;
 
 public class TC004  extends TestBaseRapor {
 
@@ -46,7 +48,6 @@ public class TC004  extends TestBaseRapor {
         hotelListPage.ADDHOTELButonu.click();
 
 
-
       //  11-ilgili alanlari  giriniz
         Actions action=new Actions(Driver.getDriver());
         action.click(hotelListPage.CreateHotelCodeButonu)
@@ -56,16 +57,19 @@ public class TC004  extends TestBaseRapor {
                 .sendKeys(Keys.TAB)
                 .sendKeys("Cikmaz Sokak no:4")
                 .sendKeys(Keys.TAB)
-                .sendKeys("222333444")
+                .sendKeys("yyy99")
                 .sendKeys(Keys.TAB)
-                .sendKeys("dddd@gmail").perform();
+                .sendKeys("oooooo#mmm").perform();
         // 16-IDGroup dan select group a tiklayiniz
         //  17-select group
 
         Select select=new Select(hotelListPage.CreateHotelIDGroupButonu);
         select.selectByIndex(2);
   extentTest.info("bilgiler girildi");
+
+
         //12-save butonuna tiklayin
+        ReusableMethods.hooverByJS(hotelListPage.CreateHotelSaveButonu);
         hotelListPage.CreateHotelSaveButonu.click();
         // ReusableMethods.getScreenShots("UsernamesS","target/screenShot/US004");
   extentTest.info("save butonuna tiklandi");
@@ -73,12 +77,19 @@ public class TC004  extends TestBaseRapor {
         // 13-save isleminin sonunda "Hotel was inserted successfully" yazisinin  goruldugunu test et
 
         Assert.assertTrue(hotelListPage.MesajKutusuButonu.isDisplayed());
+
+        String hotelEklemeUnexpectedMesaj = "Hotel was inserted successfully" ;
+        String hotelEklemeActualMesaj = hotelListPage.MesajKutusuButonu.getAttribute("innerText");
+        boolean kosul = hotelEklemeActualMesaj.equals(hotelEklemeUnexpectedMesaj);
+        softAssert.assertFalse(kosul);
+        extentTest.pass("Hatalı Veri Girişlerinde Kayıt Yapılmaması Gerekirken, Kayıt Başarıyla Gerçekleşmektedir. Sistem Beklendiği Gibi Çalımamaktadı");
+        Thread.sleep(3000);
   extentTest.info("Hotel was inserted successfully yazisi goruldu");
         hotelListPage.MesajOkButonu.click();
         extentTest.info("ok butonuna tiklanildi");
 
 
-        Driver.closeDriver();
+       // Driver.closeDriver();
 
     }
 }
