@@ -173,7 +173,10 @@ public class HotelListPage {
 
 
 
-    @FindBy(xpath = "(//button[@class='btn blue'])[2]")
+   // @FindBy(xpath = "(//button[@class='btn blue'])[2]")
+   // public WebElement CreateHotelSaveButonu;
+
+    @FindBy(xpath = "//button[@id='btnSubmit']")
     public WebElement CreateHotelSaveButonu;
 
    @FindBy(xpath = "//div[@class='bootbox-body']")
