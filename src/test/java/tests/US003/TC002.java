@@ -11,7 +11,7 @@ import static utilities.ObjectInitialiser.*;
 public class TC002 extends TestBaseRapor
 {
 
-    @Test
+    @Test (priority = 1)
     public void negativeRegistrationTestWithInvalidUsername()
     {
         extentTest=extentReports.createTest("Negative Registration Test With Invalid Username","Geçersiz Username'ler Ile Kayıt Yapılmamalıdır.");
@@ -21,7 +21,7 @@ public class TC002 extends TestBaseRapor
     }
     // pass
 
-    @Test
+    @Test (priority = 2)
     public void negativeRegistrationTestWithAlreadyExistUsername()
     {
         extentTest=extentReports.createTest("Negative Registration Test With Already Exist Username","Daha Onceden Kullanılmış Bir Username Ile Yeniden Kayıt Yapılmamalıdır");
