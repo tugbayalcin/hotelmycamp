@@ -16,7 +16,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.function.Function;
+
 public class ReusableMethods {
+
     public static String getScreenshot(String name) throws IOException {
         // naming the screenshot with the current date to avoid duplication
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
@@ -189,6 +191,7 @@ public class ReusableMethods {
         loginPage.GirisLoginButon.click();
         //6-Yönetici olarak giriş yapıldıgını test edelim.
         Assert.assertTrue(hotelListPage.listofUserYazısı.isDisplayed());
+
     }
     public static String randomSayiUret(int maxSayi)
     {
@@ -204,5 +207,6 @@ public class ReusableMethods {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }

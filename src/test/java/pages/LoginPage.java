@@ -74,9 +74,11 @@ public class LoginPage {
     public WebElement  NoPermissions ;
     @FindBy(xpath = " //div[@class='validation-summary-errors']")
     public WebElement  TryAgainPlease ;
-
+    //**********************
     @FindBy(xpath = "(//div[@class='form-group'])[1]")
     public WebElement userNameiyilmaz27Yazısı;
+
+
 
 
 }

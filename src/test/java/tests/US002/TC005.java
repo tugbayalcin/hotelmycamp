@@ -36,6 +36,8 @@ public class TC005 extends TestBaseRapor {
         ReusableMethods.waitFor(2);
         loginPage.DetailsButon.click();
 
+         ReusableMethods.hooverByJS( loginPage.EditUserAddress);
+
 
         js.executeScript("arguments[0].scrollBy(500,0);", loginPage.EditUserAddress);
 
@@ -44,8 +46,10 @@ public class TC005 extends TestBaseRapor {
         loginPage.EditUserAddress.sendKeys(" Hello Sokak");
         ReusableMethods.waitFor(2);
 
+
         js.executeScript("arguments[0].scrollBy(500,0);", loginPage.EditUserSaveButon);
         ReusableMethods.waitFor(2);
+
         loginPage.EditUserSaveButon.click();
         ReusableMethods.waitFor(2);
 

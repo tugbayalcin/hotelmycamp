@@ -40,7 +40,9 @@ public class TC003 extends TestBaseRapor {
         //10)sol taraftaki Add Hotel butonuna tikla
         hotelListPage.ADDHOTELButonu.click();
         extentTest.info("AddHotel butonuna tiklanildi");
-
+        //11)Create hotel yazisi goruldugunu test et
+        hotelListPage.CreateHotelButonu.click();
+        Assert.assertTrue(hotelListPage.CreateHotelButonu.isDisplayed());
         Driver.closeDriver();
     }
 }
